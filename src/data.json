@@ -1,0 +1,99 @@
+{
+  "title": "UW Health Launch Page",
+  "header": {
+    "ariaLabel": "Internal web portal for UW Health",
+    "iconName": "logo-uw.png"
+  },
+  "bannerNav": {
+    "ariaLabel": "Common Tools",
+    "tiles": [{
+        "href": "https://outlook.office365.com/owa",
+        "iconName": "ico_mail.svg",
+        "text": "Outlook Webmail"
+      },
+      {
+        "href": "https://uconnect.wisc.edu/directory",
+        "iconName": "ico_directory.svg",
+        "text": "Directory"
+      },
+      {
+        "href": "https://uwhmytime.uwhealth.org",
+        "iconName": "ico_clock.svg",
+        "text": "MyTime"
+      }
+    ]
+  },
+  "verticalNav": {
+    "ariaLabel": "U-Connect User Areas",
+    "tiles": [{
+        "queryString": "",
+        "iconName": "ico_u.svg",
+        "text": "for Everyone"
+      },
+      {
+        "queryString": "?tab=clinicians",
+        "iconName": "ico_physicians.svg",
+        "text": "for Physicians/APPs"
+      },
+      {
+        "queryString": "?tab=nurses",
+        "iconName": "ico_nurses.svg",
+        "text": "for Nurses"
+      }
+    ]
+  },
+  "verticalList": {
+    "ariaLabel": "Tools",
+    "links": [{
+        "href": "https://citrix.uwhealth.org",
+        "text": "Health Link (Citrix Gateway)"
+      },
+      {
+        "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=uwh80632",
+        "text": "HERO"
+      },
+      {
+        "href": "https://myapps.microsoft.com/signin/d8d85358-c554-4fac-a003-11b296b52d4f",
+        "text": "Oracle Cloud"
+      },
+      {
+        "href": "https://webpaging.uwhealth.org/webxchange/",
+        "text": "Paging"
+      },
+      {
+        "href": "https://uwhealth.service-now.com/sp/",
+        "text": "ServiceNow"
+      },
+      {
+        "href": "https://uwhca.sharepoint.com/",
+        "text": "SharePoint"
+      },
+      {
+        "href": "https://uwhealth.webex.com/",
+        "text": "WebEx"
+      }
+    ]
+  },
+  "footer": {
+    "ariaLabel": "Website References",
+    "links": [{
+        "alignment": "left",
+        "href": "https://www.google.com",
+        "iconName": "icon-google.png",
+        "text": "google.com"
+      },
+      {
+        "alignment": "right",
+        "href": "https://www.uwhealth.org",
+        "iconName": "icon-uwhealth.png",
+        "text": "uwhealth.org"
+      },
+      {
+        "alignment": "right",
+        "href": "https://www.med.wisc.edu",
+        "iconName": "icon-smph.png",
+        "text": "med.wisc.edu"
+      }
+    ]
+  }
+}

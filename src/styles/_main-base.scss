@@ -1,0 +1,573 @@
+@font-face {
+    font-family: bitter;
+    src: url(/src/assets/fonts/bitter-400.eot);
+    src: url(/src/assets/fonts/bitter-400.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/bitter-400.woff) format("woff"), url(/src/assets/fonts/bitter-400.ttf) format("truetype"), url(/src/assets/fonts/bitter-400.svg#bitter400) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: bitter;
+    src: url(/src/assets/fonts/bitter-400-italic.eot);
+    src: url(/src/assets/fonts/bitter-400-italic.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/bitter-400-italic.woff) format('woff'), url(/src/assets/fonts/bitter-400-italic.ttf) format('truetype'), url(/src/assets/fonts/bitter-400-italic.svg#bitter400italic) format('svg');
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: bitter;
+    src: url(/src/assets/fonts/bitter-700.eot);
+    src: url(/src/assets/fonts/bitter-700.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/bitter-700.woff) format("woff"), url(/src/assets/fonts/bitter-700.ttf) format("truetype"), url(/src/assets/fonts/bitter-700.svg#bitter700) format("svg");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: opensans;
+    src: url(/src/assets/fonts/opensans-400.eot);
+    src: url(/src/assets/fonts/opensans-400.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/opensans-400.woff) format("woff"), url(/src/assets/fonts/opensans-400.ttf) format("truetype"), url(/src/assets/fonts/opensans-400.svg#opensans400) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: opensans;
+    src: url(/src/assets/fonts/opensans-400-italic.eot);
+    src: url(/src/assets/fonts/opensans-400-italic.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/opensans-400-italic.woff) format('woff'), url(/src/assets/fonts/opensans-400-italic.ttf) format('truetype'), url(/src/assets/fonts/opensans-400-italic.svg#opensans400italic) format('svg');
+    font-weight: 400;
+    font-style: italic
+}
+
+@font-face {
+    font-family: opensans;
+    src: url(/src/assets/fonts/opensans-700.eot);
+    src: url(/src/assets/fonts/opensans-700.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/opensans-700.woff) format("woff"), url(/src/assets/fonts/opensans-700.ttf) format("truetype"), url(/src/assets/fonts/opensans-700.svg#opensans700) format("svg");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-family: opensans;
+    src: url(/src/assets/fonts/opensans-700-italic.eot);
+    src: url(/src/assets/fonts/opensans-700-italic.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/opensans-700-italic.woff) format('woff'), url(/src/assets/fonts/opensans-700-italic.ttf) format('truetype'), url(/src/assets/fonts/opensans-700-italic.svg#opensans700italic) format('svg');
+    font-weight: 700;
+    font-style: italic
+}
+
+@font-face {
+    font-family: uconnect;
+    src: url(/src/assets/fonts/uconnect-400.eot);
+    src: url(/src/assets/fonts/uconnect-400.eot?#iefix) format('embedded-opentype'), url(/src/assets/fonts/uconnect-400.woff) format("woff"), url(/src/assets/fonts/uconnect-400.ttf) format("truetype"), url(/src/assets/fonts/uconnect-400.svg#uconnect400) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+
+html {
+    color: #031522
+}
+
+a {
+    color: #0c639a
+}
+
+.highlight_blue {
+    background-color: #e4f1f9 !important
+}
+
+.card {
+    background-color: #fff
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box
+}
+
+.box_flag_body,
+.card,
+.list_nav a,
+article,
+header,
+nav,
+section {
+    display: block
+}
+
+.box_flag_media img {
+    display: inline-block
+}
+
+a {
+    cursor: pointer
+}
+
+.wrap {
+    *zoom: 1
+}
+
+.wrap:after,
+.wrap:before {
+    display: table;
+    content: " "
+}
+
+.wrap:after {
+    clear: both;
+    height: 0;
+    width: 0
+}
+
+.link_naked {
+    text-decoration: none
+}
+
+.card {
+    overflow: hidden
+}
+
+@media only screen and (min-width:641px) {
+    .bigs_space_neg_l_half {
+        margin-left: -14px;
+        margin-left: -.875rem
+    }
+}
+
+.row>* {
+    letter-spacing: normal;
+    word-spacing: normal
+}
+
+.row {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: -28px;
+    margin-left: -1.75rem;
+    letter-spacing: -.34em;
+    word-spacing: -.43em
+}
+
+.column {
+    display: inline-block;
+    padding-left: 28px;
+    padding-left: 1.75rem;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal
+}
+
+.box_flag_body,
+.card,
+.column {
+    width: 100%
+}
+
+@media only screen and (max-width:480px) {
+    .small_full {
+        width: 100%
+    }
+}
+
+.wrap {
+    padding: 24px 0;
+    padding: 1.5rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: block !important;
+    float: none;
+    width: 96%
+}
+
+@media only screen and (min-width:941px) {
+    .wrap {
+        width: 94%
+    }
+}
+
+@media only screen and (min-width:1100px) {
+    .wrap {
+        width: 93%
+    }
+}
+
+@media only screen and (min-width:641px) and (max-width:940px) {
+    .wrap {
+        width: 97%
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .wrap {
+        width: 97%;
+        padding-top: 12px;
+        padding-top: .75rem
+    }
+}
+
+.column {
+    overflow: visible
+}
+
+.txt_center {
+    text-align: center !important
+}
+
+body,
+h2,
+html {
+    margin: 0;
+    padding: 0
+}
+
+.pad_t_half,
+.pad_v_half {
+    padding-top: 12px;
+    padding-top: .75rem
+}
+
+.box_flag_body,
+.card_body {
+    padding-top: 6px;
+    padding-top: .375rem
+}
+
+.pad_b {
+    padding-bottom: 24px;
+    padding-bottom: 1.5rem
+}
+
+.pad_b_2 {
+    padding-bottom: 48px;
+    padding-bottom: 3rem
+}
+
+.box_flag_body,
+.card_body,
+.pad_b_half,
+.pad_v_half {
+    padding-bottom: 12px;
+    padding-bottom: .75rem
+}
+
+.pad_h_2 {
+    padding-right: 56px;
+    padding-right: 3.5rem
+}
+
+.box_flag_body,
+.card_body {
+    padding-right: 14px;
+    padding-right: .875rem
+}
+
+.pad_h_quarter {
+    padding-right: 7px;
+    padding-right: .4375rem
+}
+
+.pad_h_2 {
+    padding-left: 56px;
+    padding-left: 3.5rem
+}
+
+.box_flag_body,
+.card_body {
+    padding-left: 14px;
+    padding-left: .875rem
+}
+
+.pad_h_quarter {
+    padding-left: 7px;
+    padding-left: .4375rem
+}
+
+h2,
+ul {
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem
+}
+
+.space_b_half {
+    margin-bottom: 12px;
+    margin-bottom: .75rem
+}
+
+@media only screen and (max-width:640px) {
+    .smalls_pad_h_half {
+        padding-right: 14px;
+        padding-right: .875rem;
+        padding-left: 14px;
+        padding-left: .875rem
+    }
+}
+
+@media only screen and (min-width:641px) {
+    .box_flag_body {
+        padding-right: 28px;
+        padding-right: 1.75rem;
+        padding-left: 28px;
+        padding-left: 1.75rem
+    }
+}
+
+html {
+    font-size: 87.5%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.5
+}
+
+h2 {
+    font-family: bitter, Georgia, serif
+}
+
+html {
+    font-family: opensans, helvetica, arial, sans-serif
+}
+
+.branch0>:after,
+.branch0>:before,
+.branch_arrow>:after,
+.branch_arrow>:before,
+.grandparent>:after,
+.grandparent>:before,
+.parent>:after,
+.parent>:before,
+.self>:after,
+.self>:before {
+    font-family: uconnect
+}
+
+h2 {
+    font-size: 43px;
+    font-size: 2.6875rem;
+    line-height: 1.25582
+}
+
+@media only screen and (min-width:481px) and (max-width:640px) {
+    h2 {
+        font-size: 39.81312px;
+        font-size: 2.48832rem;
+        line-height: 1.20563
+    }
+}
+
+@media only screen and (max-width:480px) {
+    h2 {
+        font-size: 35.07917px;
+        font-size: 2.19245rem;
+        line-height: 1.36833
+    }
+}
+
+.header_gray {
+    font-size: 13.17957px;
+    font-size: .82372rem;
+    line-height: 1.821;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-family: opensans, helvetica, arial, sans-serif;
+    color: #8da1ad !important;
+    margin-bottom: 0
+}
+
+ul {
+    margin-top: 0;
+    padding: 0
+}
+
+@media only screen and (max-width:640px) {
+    h2 {
+        font-size: 35.07917px;
+        font-size: 2.19245rem;
+        line-height: 1.36833
+    }
+}
+
+@media only screen and (min-width:941px) {
+    html {
+        font-size: 16px
+    }
+}
+
+.header_gray {
+    text-transform: uppercase;
+    letter-spacing: .1em
+}
+
+.txt_bold,
+strong {
+    font-weight: 700
+}
+
+h2 {
+    font-weight: 400
+}
+
+body,
+html {
+    width: 100%;
+    min-height: 100%;
+    position: relative
+}
+
+a {
+    background: transparent
+}
+
+a:focus,
+a:hover {
+    color: #1081c9;
+    fill: #1081c9;
+    outline: 0
+}
+
+a:focus {
+    outline: thin dotted
+}
+
+a:active {
+    outline: 0;
+    color: #c21235
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle
+}
+
+::-moz-selection {
+    background: #1081c9;
+    color: #fff;
+    text-shadow: none
+}
+
+::selection {
+    background: #1081c9;
+    color: #fff;
+    text-shadow: none
+}
+
+@-ms-viewport {
+    width: device-width;
+    zoom: 1
+}
+
+@media screen and (max-width:320px) {
+    @-ms-viewport {
+        width: 320px
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:959px) {
+    @-ms-viewport {
+        width: 768px
+    }
+}
+
+.list_naked {
+    list-style: none;
+    margin-left: 0
+}
+
+.list_naked>li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0
+}
+
+.list_nav a {
+    text-decoration: none
+}
+
+.card {
+    box-shadow: 0 2px 0 rgba(3, 21, 34, .1);
+    border-radius: 2px;
+    position: relative
+}
+
+.box_flag {
+    display: table;
+    width: 100%
+}
+
+.box_flag_body,
+.box_flag_media {
+    margin: 0
+}
+
+.box_flag_media {
+    display: table-cell;
+    overflow: hidden;
+    position: relative;
+    background-color: #dde2e9;
+    text-align: center
+}
+
+.box_flag_media,
+.box_flag_media img {
+    vertical-align: middle
+}
+
+.card_body {
+    position: relative
+}
+
+.card {
+    height: 372px;
+    height: 23.25rem;
+    max-width: 414px;
+    max-width: 25.875rem;
+    margin-bottom: 36px;
+    margin-bottom: 2.25rem;
+    -webkit-transition: all .2s cubic-bezier(.4, 0, .2, 1);
+    transition: all .2s cubic-bezier(.4, 0, .2, 1)
+}
+
+.card_body {
+    -webkit-transition: all .25s cubic-bezier(.645, .045, .355, 1);
+    transition: all .25s cubic-bezier(.645, .045, .355, 1)
+}
+
+.card_media {
+    overflow: hidden;
+    min-height: 180px;
+    min-height: 11.25rem;
+    background-position: 50%;
+    background-size: cover;
+    position: relative;
+    -webkit-transition: min-height .25s cubic-bezier(.645, .045, .355, 1);
+    transition: min-height .25s cubic-bezier(.645, .045, .355, 1);
+    background-color: #e4f1f9
+}
+
+.list_view .card {
+    max-width: 59em !important;
+    max-height: 11.5em !important;
+    height: 186px;
+    height: 11.625rem
+}
+
+.list_view .card_media {
+    float: left;
+    -webkit-transition: height .25s cubic-bezier(.645, .045, .355, 1);
+    transition: height .25s cubic-bezier(.645, .045, .355, 1);
+    height: 100%;
+    width: 30%;
+    background-position: 50%
+}
+
+html {
+    background-color: #f3f5f8
+}

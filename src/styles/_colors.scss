@@ -1,0 +1,53 @@
+$colors: (
+	gray: (
+		base: #9da9b3
+	),
+	text: (
+		base: #031522
+	),
+	link: (
+		base: #0C5583
+	),
+	label: (
+		base: #8da1ad
+	),
+	soft_action: (
+		base: #5d9bc0
+	),
+	form: (
+		base: #d7dde5
+	),
+	subtle: (
+		base: #f3f5f8
+	),
+	select: (
+		base: #c21235
+	),
+	highlight: (
+		base: #e4f1f9
+	),
+    shadow: (
+        base: #0F3754
+    )
+);
+
+@function color($color-name, $opacity: 1) {
+
+    $tone: 'base';
+
+	@if not map-has-key($colors, $color-name) {
+		@warn "Key `#{$color-name}` not found in $colors map. Cannot compile Sass.";
+	}@else if not map-has-key(map-get($colors, $color-name), $tone) {
+		@warn "Tone '#{$tone}' not found in #{$color-name}. Cannot compile Sass.";
+	}
+
+	@if $opacity < 1 {
+		@return rgba(map-get(map-get($colors, $color-name), $tone), $opacity);
+	}
+
+	@return map-get(map-get($colors, $color-name), $tone);
+}
+
+@function clr($color-name, $opacity: 1) {
+    @return color($color-name, $opacity);
+}
