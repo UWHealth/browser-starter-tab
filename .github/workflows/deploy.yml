@@ -1,0 +1,51 @@
+name: Github Pages Astro CI
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
+  #push:
+  #  branches: [main]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+
+    # Allow this job to push changes to your repository
+    permissions:
+      contents: write
+
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v2
+
+      - name: 🛎️ Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: 🔧 create env file
+        run: |
+          touch .env
+          echo BASE_URL=${{ secrets.BASE_URL }} >> .env
+          echo CONTENT_OUT_PATH=${{ secrets.CONTENT_OUT_PATH }} >> .env
+          echo PIWIK_PRO_CONTAINER_ID=${{ secrets.PIWIK_PRO_CONTAINER_ID }} >> .env
+          echo PIWIK_PRO_CONTAINER_URL=${{ secrets.PIWIK_PRO_CONTAINER_URL }} >> .env
+
+      - name: 🔧 Install dependencies
+        run: npm ci
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          CONTENT_OUT_PATH: ${{ secrets.CONTENT_OUT_PATH }}
+          PIWIK_PRO_CONTAINER_ID: ${{ secrets.PIWIK_PRO_CONTAINER_ID }}
+          PIWIK_PRO_CONTAINER_URL: ${{ secrets.PIWIK_PRO_CONTAINER_URL }}
+
+      - name: 🔧 Build Site
+        run: npm run build
+
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ secrets.CONTENT_OUT_PATH }}
