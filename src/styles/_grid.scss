@@ -5,5 +5,5 @@
 }
 
 @function width($columns, $context: $grid-columns) {
-    @return math.percentage($columns / $context);
+    @return math.percentage(calc($columns / $context));
 }

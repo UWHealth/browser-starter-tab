@@ -1,78 +1,32 @@
-# browser-starter-tab
+# browser-starter-tab aka **UW Health Launch Screen**
 
-**UW Health Launch Screen**
+## Building and environment
 
-In October of 2019, the html and images for this project were moved into t4 (CMS). It is now a microsite within the UConnect instance. 
+This project uses Node and npm, so the standard `npm i` is necessary to run the project initially.
 
-## Use this repo to update the css and fonts only
+Before building the project, these environment variables must be set:
 
-The fonts and css are updated through this git repo. The styles will need to compile to css using gulp. 
+```env
+BASE_URL                    # Site endpoint
+CONTENT_OUT_PATH            # Relative path for where to store fetched
+PIWIK_PRO_CONTAINER_ID      # Piwik Pro container to reference
+PIWIK_PRO_CONTAINER_URL     # UWH Piwik Pro endpoint
+```
 
-There is also a standalone html file called test-index.html with no t4 dependencies that can be used if there is a need for future prototyping.  
+### Scripts reference
 
-## Confluence documentation  
+* `dev` && `start` - Start up a local development server.
+* `build` - Build the project for production.
+* `preview` - Run a local server on the `dist` folder. Effectively previewing a production environment.
 
-[Confluence](https://docs.uwhealth.tech/display/ehtechkb/UW+Health+and+SMPH+Launch+Screens), or search any future confluence documentation for: UW Health Launch Screen or `https://home.uwhealth.wisc.edu`
+For `build`, all of the above variables must be set.
 
-## Front-end local server set up
-To update the CSS and Fonts ONLY, run a local installation using npm and gulp. 
-1. If you haven't already, navigate to where the project will exist, then clone the 'browser starter tab' git repo
-git clone https://github.uwhealth.net/Other/browser-starter-tab.git
+## History
 
-2. Open the project in your text editor, create a new branch, and run the following:
+In February of 2023, project migrated out of T4, off of github.uwhealth.net and away from Jenkins, into an Astro + Svelte project with a repo by the same name, [hosted on github.com](https://github.com/UWHealth/browser-starter-tab) and deployed using git actions to build the `src/data.json` source to components and trigger a Netlify deploy.
 
-3. [npm update](https://docs.npmjs.com/updating-packages-downloaded-from-the-registry)
+In October of 2019, the html and images for this project were moved into t4 (CMS). ~~It is now a microsite within the UConnect instance.~~
 
-4. gulp
+## Confluence documentation
 
-5. View files locally:  
-
-       Local: http://localhost:81
-
-
-## DEV 
-
-**For updating the CSS and Fonts only** 
-
-[https://dev-home.uwhealth.wisc.edu](https://dev-home.uwhealth.wisc.edu)
-
- DEV server location: 
-
-\\uwhis.hosp.wisc.edu\UNC1\ehealth-web\servers\dev\SHARED\home.uwhealth.wisc.edu
-
-
-## PROD
-
-**Update styles and fonts only**
-
-[https://home.uwhealth.wisc.edu](https://home.uwhealth.wisc.edu)
-
-
-**Prod SAN location:
-
-\\uwhis.hosp.wisc.edu\UNC1\ehealth-web\servers\prod\SHARED\home.uwhealth.wisc.edu
-
-
-
-## Jenkins config
-
-Now prevents t4 publish from overwriting CSS directory. 
-
-## Use t4 to update Images and HTML
-
-Login to the t4 instance
-
-**t4 DEV** 
-
-https://dev-sm.uconnect.wisc.edu/terminalfour/login.jsp?continue=/SiteManager?ctfn%3Dinternal%26intF%3D20
-
-**t4 PRD**
-
-https://sm.uconnect.wisc.edu/terminalfour/login.jsp?continue=/SiteManager?ctfn%3Dinternal%26intF%3D20
-
-
-
-**See also tech documentation (confluence):** 
-
-https://docs.uwhealth.tech/display/ehtechkb/UW+Health+and+SMPH+Launch+Screens
-
+[Confluence](https://uwhealth.atlassian.net/wiki/spaces/MRTK/pages/1519691602/UW+Health+and+SMPH+Launch+Screens), or search any future confluence documentation for "Launch Screen".

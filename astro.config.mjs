@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
-import partytown from '@astrojs/partytown';
 import 'dotenv/config';
 
 
@@ -16,7 +15,7 @@ export default defineConfig({
 	integrations: [
     svelte(),
   ],
-  // output: 'static',
+  output: 'server', // 'static',
   site: IS_GITHUB ? 'https://uwhealth.github.io' : IS_JENKINS ? 'https://home.uwhealth.wisc.edu/' : undefined,
   base: IS_GITHUB || IS_JENKINS ? '/browser-starter-tab' : '',
 });
