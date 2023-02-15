@@ -1,0 +1,22 @@
+{
+  "name": "browser-starter-tab",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro telemetry disable && npm run fetch && astro build",
+    "fetch": "node scripts/getContent.mjs",
+    "preview": "astro preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@astrojs/svelte": "^2.0.1",
+    "astro": "^2.0.6",
+    "dotenv": "^16.0.3",
+    "sass": "^1.58.0"
+  },
+  "dependencies": {
+    "svelte": "^3.55.1"
+  }
+}
