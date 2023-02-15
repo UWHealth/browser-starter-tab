@@ -8,19 +8,20 @@ on:
     # Allows you to run this workflow manually from the Actions tab on GitHub.
     workflow_dispatch:
 
+# Allow this job to push changes to your repository
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
-    runs-on: ubuntu-22.04
-
-    # Allow this job to push changes to your repository
-    permissions:
-      contents: write
-
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v3
 
-      - name: 🛎️ Use Node.js 16
+      - name: 🛎️ Install, build, and upload site using Node.js 16
         uses: withastro/action@v0
         with:
           node-version: 16
@@ -42,8 +43,16 @@ jobs:
       - name: 🔧 Build Site
         run: npm run build
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        id: deployment
+        uses: actions/deploy-pages@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # `./dist` is the default Astro build directory.
