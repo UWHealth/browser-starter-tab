@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     # Allow this job to push changes to your repository
     permissions:
@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: 🛎️ Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🛎️ Use Node.js 16
         uses: actions/setup-node@v2
@@ -29,7 +29,6 @@ jobs:
         run: |
           touch .env
           echo BASE_URL=${{ secrets.BASE_URL }} >> .env
-          echo CONTENT_OUT_PATH=${{ secrets.CONTENT_OUT_PATH }} >> .env
           echo PIWIK_PRO_CONTAINER_ID=${{ secrets.PIWIK_PRO_CONTAINER_ID }} >> .env
           echo PIWIK_PRO_CONTAINER_URL=${{ secrets.PIWIK_PRO_CONTAINER_URL }} >> .env
 
@@ -37,7 +36,6 @@ jobs:
         run: npm ci
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
-          CONTENT_OUT_PATH: ${{ secrets.CONTENT_OUT_PATH }}
           PIWIK_PRO_CONTAINER_ID: ${{ secrets.PIWIK_PRO_CONTAINER_ID }}
           PIWIK_PRO_CONTAINER_URL: ${{ secrets.PIWIK_PRO_CONTAINER_URL }}
 
@@ -48,4 +46,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ secrets.CONTENT_OUT_PATH }}
+          # `./dist` is the default Astro build directory.
+          # If you changed that, update it here too.
+          publish_dir: ./dist
