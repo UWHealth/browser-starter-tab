@@ -8,7 +8,6 @@ Before building the project, these environment variables must be set:
 
 ```env
 BASE_URL                    # Site endpoint
-CONTENT_OUT_PATH            # Relative path for where to store fetched
 PIWIK_PRO_CONTAINER_ID      # Piwik Pro container to reference
 PIWIK_PRO_CONTAINER_URL     # UWH Piwik Pro endpoint
 ```
