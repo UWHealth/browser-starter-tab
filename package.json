@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro telemetry disable && npm run fetch && astro build",
+    "build": "astro telemetry disable && astro build",
     "fetch": "node scripts/getContent.mjs",
     "preview": "astro preview",
     "test": "echo \"Error: no test specified\" && exit 1"
