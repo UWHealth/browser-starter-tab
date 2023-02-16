@@ -15,7 +15,7 @@ export default defineConfig({
 	integrations: [
     svelte(),
   ],
-  output: 'server',
+  output: 'static',
   site: IS_GITHUB ? 'https://uwhealth.github.io' : IS_JENKINS ? 'https://home.uwhealth.wisc.edu/' : undefined,
   base: IS_GITHUB || IS_JENKINS ? '/browser-starter-tab' : '',
 });
