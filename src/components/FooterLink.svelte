@@ -2,7 +2,7 @@
   export let href;
   export let iconName;
   export let text;
-  export let alignment;
+  export const alignment = '';
 
   let onclick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
   let iconSrc = `${import.meta.env.BASE_URL}${iconName}`;

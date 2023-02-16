@@ -3,18 +3,25 @@
 import '../styles/project.scss';
 
 
-const stateCookieKey = 'uwh_state';
+const stateServerCookieKey = 'uwh_state';
+const stateLocalCookieKey = `${stateServerCookieKey}-local`;
+
 const stateCookieValueWisconsin = 'wi';
 const stateCookieValueIllinois = 'il';
-let stateCookieValue = Astro.cookies.get(stateCookieKey);
+
+const stateServerCookieValue = Astro.cookies.get(stateServerCookieKey);
+const stateLocalCookieValue = Astro.cookies.get(stateLocalCookieKey);
 
 // if no cookie on load, set to Wisconsin
-if (!stateCookieValue) Astro.cookies.set(stateCookieKey, stateCookieValueWisconsin);
+const stateCookieValue = stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue;
+console.log({stateCookieValue})
 
 // TODO: use cookie to feed UI
 
 // TODO: handle UI state switcher
-// const handleStateChange = () => {};
+const handleStateCookieChange = (value) => {
+  Astro.cookies.set(stateServerCookieKey, value);
+};
 
 
 // track page view
