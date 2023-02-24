@@ -13,10 +13,10 @@
     "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
-      // "$components/*": ["src/components/*"],
-      // "$assets/*": ["src/assets/*"],
-      // "$styles/*": ["src/styles/*"],
-      // "$layouts/*": ["src/layouts/*"]
+      "$components/*": ["src/components/*"],
+      "$assets/*": ["src/assets/*"],
+      "$styles/*": ["src/styles/*"],
+      "$layouts/*": ["src/layouts/*"]
     },
   },
 }

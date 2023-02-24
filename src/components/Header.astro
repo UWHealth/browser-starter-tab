@@ -1,0 +1,28 @@
+---
+import StateCookieToggle from '../components/StateCookieToggle.svelte';
+import HeaderBackground from '../components/HeaderBackground.svelte';
+import json from '../data.json';
+
+
+const {
+  title,
+  header,
+} = json;
+const {
+  ariaLabel,
+  iconName
+} = header;
+---
+
+
+<header class="header flex-center flex flex-v">
+
+  <HeaderBackground iconName={iconName} title={title} />
+
+  <h1 class="element-invisible">{ariaLabel}</h1>
+
+  <div class="toggle-state-wrapper">
+    <StateCookieToggle client:load />
+  </div>
+
+</header>

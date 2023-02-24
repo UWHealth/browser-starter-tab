@@ -133,7 +133,7 @@ html {
     justify-content: space-between;
     max-height: (1.5rem * 26);
     position: relative;
-    background-image: url('./bg_hero_5.jpg');
+    background-image: url('/src/assets/bg_hero_5.jpg');
     background-position: center 55%;
     background-size: cover;
     width: 100%;
@@ -182,6 +182,16 @@ html {
     flex-shrink: 1;
     flex-grow: .5;
     flex-basis: 9rem;
+}
+
+.header {
+    position: relative;
+}
+
+.toggle-state-wrapper {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
 }
 
 //////////Cards//////////////

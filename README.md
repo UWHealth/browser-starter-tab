@@ -7,9 +7,9 @@ This project uses Node and npm, so the standard `npm i` is necessary to run the 
 Before building the project, these environment variables must be set:
 
 ```env
-BASE_URL                    # Site endpoint
-PIWIK_PRO_CONTAINER_ID      # Piwik Pro container to reference
-PIWIK_PRO_CONTAINER_URL     # UWH Piwik Pro endpoint
+BASE_URL                        # Site endpoint
+PUBLIC_PIWIK_PRO_CONTAINER_ID   # Piwik Pro container to reference
+PUBLIC_PIWIK_PRO_CONTAINER_URL  # UWH Piwik Pro endpoint
 ```
 
 ### Scripts reference
@@ -18,7 +18,7 @@ PIWIK_PRO_CONTAINER_URL     # UWH Piwik Pro endpoint
 * `build` - Build the project for production.
 * `preview` - Run a local server on the `dist` folder. Effectively previewing a production environment.
 
-For `build`, all of the above variables must be set.
+For `build`, all of the above ENV variables must be set.
 
 ## History
 

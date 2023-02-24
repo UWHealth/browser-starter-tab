@@ -4,76 +4,6 @@
     "ariaLabel": "Internal web portal for UW Health",
     "iconName": "logo-uw.png"
   },
-  "bannerNav": {
-    "ariaLabel": "Common Tools",
-    "tiles": [{
-        "href": "https://outlook.office365.com/owa",
-        "iconName": "ico_mail.svg",
-        "text": "Outlook Webmail"
-      },
-      {
-        "href": "https://uconnect.wisc.edu/directory",
-        "iconName": "ico_directory.svg",
-        "text": "Directory"
-      },
-      {
-        "href": "https://uwhmytime.uwhealth.org",
-        "iconName": "ico_clock.svg",
-        "text": "MyTime"
-      }
-    ]
-  },
-  "verticalNav": {
-    "ariaLabel": "U-Connect User Areas",
-    "tiles": [{
-        "queryString": "",
-        "iconName": "ico_u.svg",
-        "text": "for Everyone"
-      },
-      {
-        "queryString": "?tab=clinicians",
-        "iconName": "ico_physicians.svg",
-        "text": "for Physicians/APPs"
-      },
-      {
-        "queryString": "?tab=nurses",
-        "iconName": "ico_nurses.svg",
-        "text": "for Nurses"
-      }
-    ]
-  },
-  "verticalList": {
-    "ariaLabel": "Tools",
-    "links": [{
-        "href": "https://citrix.uwhealth.org",
-        "text": "Health Link (Citrix Gateway)"
-      },
-      {
-        "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=uwh80632",
-        "text": "HERO"
-      },
-      {
-        "href": "https://myapps.microsoft.com/signin/d8d85358-c554-4fac-a003-11b296b52d4f",
-        "text": "Oracle Cloud"
-      },
-      {
-        "href": "https://webpaging.uwhealth.org/webxchange/",
-        "text": "Paging"
-      },
-      {
-        "href": "https://uwhealth.service-now.com/sp/",
-        "text": "ServiceNow"
-      },
-      {
-        "href": "https://uwhca.sharepoint.com/",
-        "text": "SharePoint"
-      },
-      {
-        "href": "https://uwhealth.webex.com/",
-        "text": "WebEx"
-      }
-    ]
-  },
   "footer": {
     "ariaLabel": "Website References",
     "links": [{
@@ -95,5 +25,164 @@
         "text": "med.wisc.edu"
       }
     ]
-  }
+  },
+  "states": [
+    {
+      "state": "wi",
+      "bannerNav": {
+        "ariaLabel": "Common Tools",
+        "tiles": [{
+            "href": "https://outlook.office365.com/owa",
+            "iconName": "ico_mail.svg",
+            "text": "Outlook Webmail"
+          },
+          {
+            "href": "https://uconnect.wisc.edu/directory",
+            "iconName": "ico_directory.svg",
+            "text": "Directory"
+          },
+          {
+            "href": "https://uwhmytime.uwhealth.org",
+            "iconName": "ico_clock.svg",
+            "text": "MyTime"
+          }
+        ]
+      },
+      "verticalNav": {
+        "ariaLabel": "U-Connect User Areas",
+        "tiles": [{
+            "path": "/",
+            "iconName": "ico_u.svg",
+            "text": "for Everyone"
+          },
+          {
+            "path": "/?tab=clinicians",
+            "iconName": "ico_physicians.svg",
+            "text": "for Physicians/APPs"
+          },
+          {
+            "path": "/?tab=nurses",
+            "iconName": "ico_nurses.svg",
+            "text": "for Nurses"
+          },
+          {
+            "path": "/?tab=managers",
+            "iconName": "ico_manager.svg",
+            "text": "for Managers"
+          }
+        ]
+      },
+      "verticalList": {
+        "ariaLabel": "Tools",
+        "links": [{
+            "href": "https://citrix.uwhealth.org",
+            "text": "Health Link (Citrix Gateway)"
+          },
+          {
+            "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=uwh80632",
+            "text": "HERO"
+          },
+          {
+            "href": "https://myapps.microsoft.com/signin/d8d85358-c554-4fac-a003-11b296b52d4f",
+            "text": "Oracle Cloud"
+          },
+          {
+            "href": "https://webpaging.uwhealth.org/webxchange/",
+            "text": "Paging"
+          },
+          {
+            "href": "https://uwhealth.service-now.com/sp/",
+            "text": "ServiceNow"
+          },
+          {
+            "href": "https://uwhca.sharepoint.com/",
+            "text": "SharePoint"
+          },
+          {
+            "href": "https://uwhealth.webex.com/",
+            "text": "WebEx"
+          }
+        ]
+      }
+    },
+    {
+      "state": "il",
+      "bannerNav": {
+        "ariaLabel": "Common Tools",
+        "tiles": [{
+            "href": "https://outlook.office365.com/",
+            "iconName": "ico_mail.svg",
+            "text": "Outlook Webmail"
+          },
+          {
+            "href": "https://uconnect.wisc.edu/directory",
+            "iconName": "ico_directory.svg",
+            "text": "Directory"
+          },
+          {
+            "href": "https://apitass.swedishamerican.org/APIHC/TASS/WebPortal/APIHealthcare/Login.aspx",
+            "iconName": "ico_clock.svg",
+            "text": "Centricity TA/SS"
+          }
+        ]
+      },
+      "verticalNav": {
+        "ariaLabel": "U-Connect User Areas",
+        "tiles": [{
+            "path": "/",
+            "iconName": "ico_u.svg",
+            "text": "for Everyone"
+          },
+          {
+            "path": "/depts/uwhealth/ni/",
+            "iconName": "ico_ni.svg",
+            "text": "for Northern Illinois"
+          },
+          {
+            "path": "/depts/uwhealth/ni/nursing-411/",
+            "iconName": "ico_nurses.svg",
+            "text": "Nursing 411"
+          },
+          {
+            "path": "/depts/uwhealth/ni/app/",
+            "iconName": "ico_u.svg",
+            "text": "Apps+"
+          }
+        ]
+      },
+      "verticalList": {
+        "ariaLabel": "Tools",
+        "links": [
+          {
+            "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=uwh80632",
+            "text": "HERO"
+          },
+          {
+            "href": "https://citrix.uwhealth.org",
+            "text": "Citrix"
+          },
+          {
+            "href": "http://www.3eonline.com/EeeOnlinePortal/DesktopDefault.aspx?id=s1mGPv%2fgScQMXewj%2fj58sihHoUQYpnFnUlD3b7PXVYs%3d",
+            "text": "(M)SDS"
+          },
+          {
+            "href": "http://www.myadp.com/",
+            "text": "My Paycheck"
+          },
+          {
+            "href": "https://uwhca.sharepoint.com/sites/UWNorthernIllinoisPoliciesandProcedures",
+            "text": "Policies"
+          },
+          {
+            "href": "https://uwhealth.service-now.com/sah_sp",
+            "text": "ServiceNow (IS Request)"
+          },
+          {
+            "href": "https://uwhca.sharepoint.com/",
+            "text": "SharePoint"
+          }
+        ]
+      }
+    }
+  ]
 }

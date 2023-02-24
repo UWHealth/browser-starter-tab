@@ -1,37 +1,5 @@
 ---
-// import getCookie from '../utils/getCookie';
 import '../styles/project.scss';
-
-
-const stateServerCookieKey = 'uwh_state';
-const stateLocalCookieKey = `${stateServerCookieKey}-local`;
-
-const stateCookieValueWisconsin = 'wi';
-const stateCookieValueIllinois = 'il';
-
-const stateServerCookieValue = Astro.cookies.get(stateServerCookieKey);
-const stateLocalCookieValue = Astro.cookies.get(stateLocalCookieKey);
-
-// if no cookie on load, set to Wisconsin
-const stateCookieValue = stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue;
-console.log({stateCookieValue})
-
-// TODO: use cookie to feed UI
-
-// TODO: handle UI state switcher
-const handleStateCookieChange = (value) => {
-  Astro.cookies.set(stateServerCookieKey, value);
-};
-
-
-// track page view
-declare global {
-  interface Window {
-    _paq:any;
-  }
-}
-const _paq = typeof window !== 'undefined' && window._paq || [];
-_paq.push(['trackPageView', stateCookieValue]);
 
 const PUBLIC_PIWIK_PRO_CONTAINER_URL = import.meta.env.PUBLIC_PIWIK_PRO_CONTAINER_URL;
 const PUBLIC_PIWIK_PRO_CONTAINER_ID = import.meta.env.PUBLIC_PIWIK_PRO_CONTAINER_ID;

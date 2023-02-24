@@ -1,46 +1,58 @@
 ---
-import json from '../data.json';
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.svelte';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import BannerNav from '../components/BannerNav.svelte';
 import VerticalNav from '../components/VerticalNav.svelte';
 import VerticalList from '../components/VerticalList.svelte';
-import Footer from '../components/Footer.svelte';
+import StateCookieProvider from '../components/StateCookieProvider.svelte';
+import json from '../data.json';
 
 
 const {
   title,
-  header,
-  bannerNav,
-  verticalNav,
-  verticalList,
-  footer
+  footer,
+  states,
 } = json;
 ---
 
 <Layout title={title}>
 
-  <div class="flex flex-v flex-wrap">
-    <div class="hero flex flex-v vh-4-10">
+  {states.map(s => {
+    const {
+      state,
+      bannerNav,
+      verticalNav,
+      verticalList,
+    } = s;
 
-      <Header title={title} {...header} client:load />
+    return (
+      <StateCookieProvider state={state} client:load>
+        <div class="flex flex-v flex-wrap">
+          <div class="hero flex flex-v vh-4-10">
 
-      <BannerNav {...bannerNav} client:load />
+            <Header />
 
-    </div>
+            <BannerNav {...bannerNav} client:load />
 
-    <div class="flex vh-6-10">
-      <div class="wrap pad_b_2 smalls_pad_h_half">
-        <div class="row">
+          </div>
 
-          <VerticalNav {...verticalNav} client:load />
+          <div class="flex vh-6-10">
+            <div class="wrap pad_b_2 smalls_pad_h_half">
+              <div class="row">
 
-          <VerticalList {...verticalList} client:load />
+                <VerticalNav {...verticalNav} client:load />
 
+                <VerticalList {...verticalList} client:load />
+
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </StateCookieProvider>
+    );
+  })}
 
-  <Footer {...footer} client:load />
+  <Footer footer={footer} />
+
 </Layout>
