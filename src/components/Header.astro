@@ -1,29 +1,42 @@
 ---
+import BannerNav from '../components/BannerNav.svelte';
 import StateCookieToggleBtn from '../components/StateCookieToggleBtn.svelte';
-import HeaderBackground from '../components/HeaderBackground.svelte';
 import { STATE_COOKIE_VALUES } from '../utils/stateCookie';
 import json from '../data.json';
 
 
-const {
-  title,
-  header,
-} = json;
-const {
-  ariaLabel,
-  iconName
-} = header;
+interface Props {
+  bannerNav: {
+    ariaLabel: string;
+    tiles: Array<{
+      href: string;
+      iconName: string;
+      text: string;
+    }>
+  }
+};
+
+const { bannerNav } = Astro.props;
+const { ariaLabel, tiles } = bannerNav;
+
+const { title, header } = json;
+const { ariaLabel: headerAriaLabel, iconName } = header;
 ---
 
+<div class="hero flex flex-v vh-4-10">
 
-<header class="header flex-center flex flex-v">
+  <header class="header flex-center flex flex-v">
 
-  <HeaderBackground iconName={iconName} title={title} />
+    <img src={`${import.meta.env.BASE_URL}${iconName}`} class="pad_h_2 flex-center" alt={title} style="z-index:1;">
 
-  <h1 class="element-invisible">{ariaLabel}</h1>
+    <h1 class="element-invisible">{headerAriaLabel}</h1>
 
-  <div class="toggle-state-wrapper">
-    {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}
-  </div>
+    <div class="toggle-state-wrapper">
+      {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}
+    </div>
 
-</header>
+  </header>
+
+  <BannerNav ariaLabel={ariaLabel} tiles={tiles} client:load />
+
+</div>

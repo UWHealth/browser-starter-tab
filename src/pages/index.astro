@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import BannerNav from '../components/BannerNav.svelte';
 import VerticalNav from '../components/VerticalNav.svelte';
 import VerticalList from '../components/VerticalList.svelte';
 import StateCookieProvider from '../components/StateCookieProvider.svelte';
@@ -29,13 +28,8 @@ const {
     return (
       <StateCookieProvider state={state} client:load>
         <div class="flex flex-v flex-wrap">
-          <div class="hero flex flex-v vh-4-10">
 
-            <Header />
-
-            <BannerNav {...bannerNav} client:load />
-
-          </div>
+          <Header bannerNav={bannerNav} />
 
           <div class="flex vh-6-10">
             <div class="wrap pad_b_2 smalls_pad_h_half">
