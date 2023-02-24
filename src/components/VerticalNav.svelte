@@ -1,6 +1,7 @@
 <script>
   import VerticalNavTile from './VerticalNavTile.svelte';
 
+
   export let ariaLabel;
   export let tiles;
 </script>

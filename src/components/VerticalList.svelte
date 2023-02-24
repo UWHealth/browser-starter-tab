@@ -1,6 +1,7 @@
 <script>
   import VerticalListLink from './VerticalListLink.svelte';
 
+
   export let ariaLabel;
   export let links;
 </script>

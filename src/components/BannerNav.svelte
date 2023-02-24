@@ -1,6 +1,7 @@
 <script>
   import BannerNavTile from './BannerNavTile.svelte';
 
+
   export let ariaLabel;
   export let tiles;
 </script>

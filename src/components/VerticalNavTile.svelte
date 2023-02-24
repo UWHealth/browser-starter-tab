@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition';
 
+
   export let path = '';
   export let iconName = '';
   export let text = '';

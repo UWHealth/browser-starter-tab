@@ -1,6 +1,4 @@
 <script>
-  import { fade } from 'svelte/transition';
-
   export let href = '';
   export let iconName = '';
   export let text = '';
@@ -10,7 +8,7 @@
 </script>
 
 
-<a class="card-flex card" href={href} on:click={handleClick} in:fade>
+<a class="card-flex card" href={href} on:click={handleClick}>
 
   {#if iconSrc}
     <div class="card-flex_head flex-center">

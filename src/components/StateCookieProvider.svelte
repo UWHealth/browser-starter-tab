@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
   import { stateCookie } from '../utils/stores';
   import { setLocalStateCookie, STATE_COOKIE_VALUE_WISCONSIN } from '../utils/stateCookie';
 
@@ -29,7 +28,7 @@
 
 
 {#if state === $stateCookie}
-  <div in:fade>
+  <div>
     <slot />
   </div>
 {/if}

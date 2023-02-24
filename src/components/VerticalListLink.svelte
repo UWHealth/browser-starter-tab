@@ -1,6 +1,4 @@
 <script>
-  import { fade } from 'svelte/transition';
-
   export let href = '';
   export let text = '';
 
@@ -8,7 +6,7 @@
 </script>
 
 <li>
-  <a href={href} on:click={handleClick} in:fade>
+  <a href={href} on:click={handleClick}>
     <t4 type="content" name="Tools-2-text" output="normal" modifiers="striptags,htmlentities" />
 
     <slot name="text">
