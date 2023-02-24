@@ -30,15 +30,15 @@ jobs:
         run: |
           touch .env
           echo BASE_URL=${{ secrets.BASE_URL }} >> .env
-          echo PIWIK_PRO_CONTAINER_ID=${{ secrets.PIWIK_PRO_CONTAINER_ID }} >> .env
-          echo PIWIK_PRO_CONTAINER_URL=${{ secrets.PIWIK_PRO_CONTAINER_URL }} >> .env
+          echo PUBLIC_PIWIK_PRO_CONTAINER_ID=${{ secrets.PUBLIC_PIWIK_PRO_CONTAINER_ID }} >> .env
+          echo PUBLIC_PIWIK_PRO_CONTAINER_URL=${{ secrets.PUBLIC_PIWIK_PRO_CONTAINER_URL }} >> .env
 
       - name: 🔧 Install dependencies
         run: npm ci
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
-          PIWIK_PRO_CONTAINER_ID: ${{ secrets.PIWIK_PRO_CONTAINER_ID }}
-          PIWIK_PRO_CONTAINER_URL: ${{ secrets.PIWIK_PRO_CONTAINER_URL }}
+          PUBLIC_PIWIK_PRO_CONTAINER_ID: ${{ secrets.PUBLIC_PIWIK_PRO_CONTAINER_ID }}
+          PUBLIC_PIWIK_PRO_CONTAINER_URL: ${{ secrets.PUBLIC_PIWIK_PRO_CONTAINER_URL }}
 
       - name: 🔧 Build Site
         run: npm run build
