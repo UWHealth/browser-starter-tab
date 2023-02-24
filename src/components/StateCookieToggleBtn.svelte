@@ -2,11 +2,13 @@
   import { stateCookie } from '../utils/stores';
   import { setLocalStateCookie } from '../utils/stateCookie';
 
+
   export let state;
 
   function handleClick() {
     stateCookie.set(state);
     setLocalStateCookie(state);
+    _paq.push(['trackEvent', 'User Activity', 'State Toggle', state]);
   }
 </script>
 
