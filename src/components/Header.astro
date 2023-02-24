@@ -1,6 +1,7 @@
 ---
-import StateCookieToggle from '../components/StateCookieToggle.svelte';
+import StateCookieToggleBtn from '../components/StateCookieToggleBtn.svelte';
 import HeaderBackground from '../components/HeaderBackground.svelte';
+import { STATE_COOKIE_VALUES } from '../utils/stateCookie';
 import json from '../data.json';
 
 
@@ -22,7 +23,7 @@ const {
   <h1 class="element-invisible">{ariaLabel}</h1>
 
   <div class="toggle-state-wrapper">
-    <StateCookieToggle client:load />
+    {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}
   </div>
 
 </header>
