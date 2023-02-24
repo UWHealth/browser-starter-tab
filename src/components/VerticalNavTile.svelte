@@ -1,11 +1,13 @@
 <script>
-  export let queryString = '';
-  export let href = `https://uconnect.wisc.edu/${queryString}`;
+  import { fade } from 'svelte/transition';
+
+  export let path = '';
   export let iconName = '';
   export let text = '';
 
-  let iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
-  let onclick = () => _paq.push(['trackEvent', 'User Activity', 'U-Connect Experiences', `U-Connect ${text.length ? text : ''}`]);
+  const href = `https://uconnect.wisc.edu${path}`;
+  const iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
+  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'U-Connect Experiences', `U-Connect ${text.length ? text : ''}`]);
 </script>
 
 <svelte:head>
@@ -13,7 +15,7 @@
 </svelte:head>
 
 
-<a href={href} class="link_naked" onclick={onclick}>
+<a href={href} class="link_naked" on:click={handleClick} in:fade>
   <div class="card card-short box_flag space_b_half">
 
     <header class="box_flag_media bg-blue pad_h_quarter card_media">

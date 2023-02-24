@@ -2,9 +2,9 @@
   export let href;
   export let iconName;
   export let text;
-  export const alignment = '';
+  export let alignment;
 
-  let onclick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
+  let handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
   let iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
 </script>
 
@@ -13,7 +13,7 @@
 </svelte:head>
 
 {#if href}
-  <a href={href} class="link_naked txt_center webbar_item" onclick={onclick}>
+  <a href={href} class="link_naked txt_center webbar_item" on:click={handleClick} data-align={alignment}>
     <img src={iconSrc} class="inline-block" width="36" height="36" alt="">
     <span class="webbar_item_text">{text}</span>
   </a>

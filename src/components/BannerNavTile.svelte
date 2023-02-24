@@ -1,14 +1,16 @@
 <script>
+  import { fade } from 'svelte/transition';
+
   export let href = '';
   export let iconName = '';
   export let text = '';
 
-  let iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
-  let onclick = () => _paq.push(['trackEvent', 'User Activity', 'Top/Main links', `${text.length ? text : ''}`]);
+  const iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
+  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Top/Main links', `${text.length ? text : ''}`]);
 </script>
 
 
-<a class="card-flex card" href={href} onclick={onclick}>
+<a class="card-flex card" href={href} on:click={handleClick} in:fade>
 
   {#if iconSrc}
     <div class="card-flex_head flex-center">
