@@ -1,7 +1,7 @@
 ---
 import BannerNav from '../components/BannerNav.svelte';
 import StateCookieToggleBtn from '../components/StateCookieToggleBtn.svelte';
-import { STATE_COOKIE_VALUES } from '../utils/stateCookie';
+import { STATE_COOKIE_VALUES, STATE_COOKIE_VALUE_ILLINOIS } from '../utils/stateCookie';
 import json from '../data.json';
 
 
@@ -13,17 +13,18 @@ interface Props {
       iconName: string;
       text: string;
     }>
-  }
+  },
+  state: string,
 };
 
-const { bannerNav } = Astro.props;
+const { bannerNav, state } = Astro.props;
 const { ariaLabel, tiles } = bannerNav;
 
 const { title, header } = json;
 const { ariaLabel: headerAriaLabel, iconName } = header;
 ---
 
-<div class="hero flex flex-v vh-4-10">
+<div class:list={['hero flex flex-v vh-4-10', { 'illinois': state === STATE_COOKIE_VALUE_ILLINOIS }]}>
 
   <header class="header flex-center flex flex-v">
 
@@ -40,3 +41,9 @@ const { ariaLabel: headerAriaLabel, iconName } = header;
   <BannerNav ariaLabel={ariaLabel} tiles={tiles} client:load />
 
 </div>
+
+<style>
+  .illinois {
+    background-image: url('/src/assets/bg_hero_temp_illinois.jpg');
+  }
+</style>
