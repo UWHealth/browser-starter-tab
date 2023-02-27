@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <g id="apps">
+    <path d="m24,2C11.85,2,2,11.85,2,24s9.85,22,22,22,22-9.85,22-22S36.15,2,24,2Zm-13,19h5.99v6h-5.99v-6Zm6,16h-6v-6h6v6Zm0-20h-6v-6h6v6Zm10,20h-6v-6h6v6Zm0-10h-6v-6h6v6Zm0-10h-6v-6h6v6Zm10,20h-6v-6h6v6Zm0-10h-6v-6h6v6Zm0-10h-6v-6h6v6Z" fill="#e3f1f9"/>
+  </g>
+</svg>
