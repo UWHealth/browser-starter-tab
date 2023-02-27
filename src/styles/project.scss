@@ -8,435 +8,271 @@ $base-px: 13.76px;
 
 
 html {
-    overflow-y: scroll;
-    @media only screen and (min-width: 640px) {
-        font-size: 86%;
-    }
-    @media only screen and (max-width: 639px) {
-        font-size: 75%;
-    }
+  overflow-y: scroll;
+  letter-spacing: 0.55px;
+
+  @media only screen and (min-width: 640px) {
+    font-size: 86%;
+  }
+
+  @media only screen and (max-width: 639px) {
+    font-size: 75%;
+  }
 }
 
 //////////Grid//////////////
 
-.row > * {
-    letter-spacing: normal;
-    word-spacing: normal;
+.row>* {
+  letter-spacing: normal;
+  word-spacing: normal;
 }
 
 .wrap {
-    max-width: 940px;
+  max-width: 940px;
 
-    @media only screen and (max-height: (calc(760px/$base-px) * 1em)) {
-        padding-top: (1.5 * .5) * 1em;
-    }
+  @media only screen and (max-height: (calc(760px/$base-px) * 1em)) {
+    padding-top: (1.5 * .5) * 1em;
+  }
 }
 
 .c-4-12 {
-    @include grid(4);
+  @include grid(4);
 
-    @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
-        @include grid(5)
-    }
+  @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
+    @include grid(5)
+  }
 }
 
 .c-5-12 {
-    @include grid(5);
+  @include grid(5);
 }
 
 .c-7-12 {
-    @include grid(7);
+  @include grid(7);
 }
 
 .small_full {
-    @media only screen and (max-width: (calc(480px/$base-px) * 1em)) {
-        width: 100%;
-    }
+  @media only screen and (max-width: (calc(480px/$base-px) * 1em)) {
+    width: 100%;
+  }
 }
 
 .push-1-12 {
-    position: relative;
-    left: width(1);
+  position: relative;
+  left: width(1);
 }
 
 .smalls-push-0 {
-    @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
-        left: 0;
-    }
+  @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
+    left: 0;
+  }
 }
 
 //////////Utility Classes//////////////
 
 .bg-white {
-    background-color: rgba(#fff, .2);
-}
-.bg-gray {
-    background-color: color('form');
-}
-.bg-blue {
-    background-color: color('link');
+  background-color: rgba(#fff, .2);
 }
 
+.bg-gray {
+  background-color: color('form');
+}
+
+.bg-blue {
+  background-color: color('link');
+}
 
 //////////Flex Grid//////////////
 
 .flex-wrap {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .flex {
-    display: flex;
-    flex: 1 1 auto;
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .flex-v {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-center {
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .vh-4-10 {
-    min-height: 15rem;
-    height: 50vh;
-    flex-basis: auto;
+  min-height: 15rem;
+  height: 50vh;
+  flex-basis: auto;
 
-    @media only screen and (max-height: (calc(785px/$base-px) * 1em)) {
-        height: 42vh;
-        flex-basis: 42vh;
-    }
+  @media only screen and (max-height: (calc(785px/$base-px) * 1em)) {
+    height: 42vh;
+    flex-basis: 42vh;
+  }
 
-    @media only screen and (max-height: (calc(700px/$base-px) * 1em)) {
-        height: 36vh;
-        flex-basis: 36vh;
-    }
+  @media only screen and (max-height: (calc(700px/$base-px) * 1em)) {
+    height: 36vh;
+    flex-basis: 36vh;
+  }
 }
 
 .vh-6-10 {
-    height: 58vh;
-    min-height: calc(450px / $base-px) * 1em;
-    flex-shrink: 0;
-    margin-bottom: 3rem;
+  height: 58vh;
+  min-height: calc(450px / $base-px) * 1em;
+  flex-shrink: 0;
+  margin-bottom: 3rem;
 
-    @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
-        height: auto;
-    }
-}
-
-
-//////////Top//////////////
-
-.hero {
-    background-color: color('link');
-    justify-content: space-between;
-    max-height: (1.5rem * 26);
-    position: relative;
-    background-image: url('/src/assets/bg_hero_5.jpg');
-    background-position: center 55%;
-    background-size: cover;
-    width: 100%;
-    padding: 0;
-    flex-shrink: 2;
-    flex-grow: .5;
-}
-
-.hero:before {
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: 0;
-	top: 0;
-	width: 100%;
-	background-image: linear-gradient(to bottom,
-        rgba(13,50,70,0.2) 0,
-        rgba(color(subtle), 1) 98%
-    );
-
-}
-
-.hero_logo {
-    min-height: 30%;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    flex-basis: 2.5rem;
-    flex-grow: 1.75;
-    position: relative;
-}
-
-.hero_logo img {
-    flex: 0 0 auto;
-    align-self: center;
-    justify-content: center;
+  @media only screen and (max-width: (calc(640px/$base-px) * 1em)) {
     height: auto;
-
-    @media only screen and (max-height: (calc(760px/$base-px) * 1em)) {
-        max-height: 32px;
-        width: auto !important;
-    }
-}
-
-.hero_nav {
-    flex-shrink: 1;
-    flex-grow: .5;
-    flex-basis: 9rem;
-}
-
-.header {
-    position: relative;
-}
-
-.toggle-state-wrapper {
-    z-index: 1;
-    position: absolute;
-    bottom: 0;
+  }
 }
 
 //////////Cards//////////////
 
 .card-group {
-    justify-content: space-around;
-    flex-direction: row;
-    max-width: 1100px;
-    padding: .75rem 0;
-    flex-basis: 1100px;
+  justify-content: space-around;
+  flex-direction: row;
+  max-width: 1100px;
+  padding: .75rem 0;
+  flex-basis: 1100px;
 }
 
 .card {
-    overflow: auto;
-    text-decoration: none;
+  overflow: auto;
+  text-decoration: none;
 }
 
 .card_head_image {
-    width: 22%;
-    padding-top: .75rem;
-    padding-bottom: .75rem;
+  width: 22%;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: #1574AB;
 
-    @media only screen and (max-height: (calc(760px/$base-px) * 1em)) {
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-        width: 16%;
-    }
+  @media only screen and (max-height: (calc(760px/$base-px) * 1em)) {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    width: 16%;
+  }
 
-    @media only screen and (max-width: (calc(575px/$base-px) * 1em)) {
-        width: 30%;
-    }
-    @media only screen and (max-width: (calc(500px/$base-px) * 1em)) {
-        width: 3.5rem;
-    }
+  @media only screen and (max-width: (calc(575px/$base-px) * 1em)) {
+    width: 30%;
+  }
 
-    .list_view & {
-        max-height: none;
-    }
+  @media only screen and (max-width: (calc(500px/$base-px) * 1em)) {
+    width: 3.5rem;
+  }
+
+  .list_view & {
+    max-height: none;
+  }
 }
 
 .card-flex {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    max-width: 22rem;
-    margin: .25rem .375rem;
-    height: auto;
-    margin-bottom: 0;
-	box-shadow: 0 1px 10px rgba(clr(shadow), 0.125);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  max-width: 22rem;
+  margin: .25rem .375rem;
+  height: auto;
+  margin-bottom: 0;
+  box-shadow: 0 1px 10px rgba(clr(shadow), 0.125);
 }
 
 .card-flex_head {
-    display: flex;
-    min-height: 9vh;
-    max-height: calc(125px / 15px) * 1em;
-    flex-basis: 70px;
-    flex-shrink: .5;
-    flex-grow: .5;
-    overflow: hidden;
+  display: flex;
+  min-height: 9vh;
+  max-height: calc(125px / 15px) * 1em;
+  flex-basis: 70px;
+  flex-shrink: .5;
+  flex-grow: .5;
+  overflow: hidden;
 
-    @media only screen and (max-height: (calc(800px/$base-px) * 1em)) {
-        min-height: 7vh;
-    }
+  @media only screen and (max-height: (calc(800px/$base-px) * 1em)) {
+    min-height: 7vh;
+  }
 }
 
 .card-flex .card_body {
-    display: flex;
-    padding: .75rem .25rem;
+  display: flex;
+  padding: .75rem .25rem;
 }
 
 
 .card:hover,
 .card:focus {
-    background-color: lighten(color('highlight'), 5%);
-    transform: scale(1.0125);
-    box-shadow: 0 8px 10px -6px rgba(clr(shadow), .3),
-    0 3px 4px -2px rgba(clr(shadow),.2);
+  background-color: lighten(color('highlight'), 5%);
+  transform: scale(1.0125);
+  box-shadow: 0 8px 10px -6px rgba(clr(shadow), .3),
+    0 3px 4px -2px rgba(clr(shadow), .2);
 }
 
 .card:active {
-    color: lighten(color(link), 15%);
-    transform: scale(1.0135);
-    box-shadow: 0 8px 10px -3px rgba(clr(shadow), .4),
-        0 3px 4px -2px rgba(clr(shadow),.3);
+  color: lighten(color(link), 15%);
+  transform: scale(1.0135);
+  box-shadow: 0 8px 10px -3px rgba(clr(shadow), .4),
+    0 3px 4px -2px rgba(clr(shadow), .3);
 }
 
 //////////Small Cards//////////////
 
 .card .box_flag_body {
-    padding-bottom: .375rem;
+  padding-bottom: .375rem;
 }
 
 .list_view {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 
-    .card {
-        transition-duration: .1s;
+  .card {
+    transition-duration: .1s;
+  }
+
+  .card:hover,
+  .card:focus {
+    transform: scale(1.01);
+  }
+
+  .card:active {
+    transform: scale(1.015)
+  }
+
+  .card-short {
+    height: auto;
+    width: 100%;
+    margin-bottom: .75rem;
+    transform-origin: 50% 50%;
+
+    @media only screen and (min-width: (calc(540px/$base-px) * 1em)) and (max-height: (calc(680px/$base-px) * 1em)) {
+      margin-bottom: .375rem;
+      background-color: rgba(white, .5);
+      border-radius: 0;
+
+      .box_flag_body {
+        padding-top: .1375rem;
+        padding-bottom: .1375rem;
+      }
     }
+  }
 
-    .card:hover,
-    .card:focus {
-        transform: scale(1.01);
-    }
+  .card:hover .card_media {
+    background-color: color(link, .9)
+  }
 
-    .card:active {
-        transform: scale(1.015)
-    }
-
-    .card-short {
-        height: auto;
-        width: 100%;
-        margin-bottom: .75rem;
-        transform-origin: 50% 50%;
-
-        @media only screen and (min-width: (calc(540px/$base-px) * 1em)) and (max-height: (calc(680px/$base-px) * 1em)) {
-            margin-bottom: .375rem;
-            background-color: rgba(white, .5);
-            border-radius: 0;
-
-            .box_flag_body {
-                padding-top: .1375rem;
-                padding-bottom: .1375rem;
-            }
-        }
-    }
-
-    .card:hover .card_media {
-        background-color: color(link, .9)
-    }
-
-    .card_media {
-        border-radius: 2px 0 0 2px;
-        transition: background 100ms ease-in;
-        min-height: (1.5rem * 3.5);
-        width: (1.5rem * 4);
-        float: none;
-    }
-
-}
-
-
-//////////Web Tools//////////////
-.list_nav > li {
-    margin-bottom: calc(1.5rem / 4);
-    color: color(label);
-}
-
-.list_nav a {
-    padding: .5rem;
-    left: -.5rem;
-    position: relative;
-    transition: background 75ms ease-out;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 2px;
-}
-
-.list_nav .list_nav_inline {
-    display: inline-block;
-    vertical-align: middle;
-    left: 0;
-    top: -.075em; //vertical alignment adjustment
-    margin-right: -.2em; //Compensate up for markup whitespace
-    padding-left: .35rem;
-}
-
-.list_nav a:hover {
-    background-color: rgba(color('highlight'), .6);
-    border-radius: 3px;
-}
-
-//////////Sticky Bottom Bar//////////////
-
-.row-even {
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: space-between;
-}
-
-.webbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: mix(color('label'), color('subtle'), 10%);
-    padding: .5rem 2% .2rem .5%;
-}
-
-.webbar_item-group {
-    display: inline-flex;
-    flex: 1 1 75%;
-    justify-content: flex-end;
-    align-content: flex-end;
-    padding-top: 0;
-    padding-bottom: 0;
-    max-width: 75%;
-
-    @media only screen and (max-width: (calc(640px/13.75px) * 1em)) {
-        justify-content: space-between;
-    }
-}
-
-.webbar_item {
-    display: inline-flex;
-    flex-direction: column;
-    padding: .25rem 2.35% .05rem;
-    overflow: hidden;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    flex: 0 1 auto;
-    max-width: 15em;
-}
-
-.webbar_item img {
-    display: block;
-    margin: auto;
-    width: 36px;
-    max-width: none;
-}
-
-
-a.webbar_item:hover,
-a.webbar_item:focus {
-    border-color: color(link, .25);
-    outline: none;
-}
-
-a.webbar_item:active {
-    background-color: lighten(color('highlight'), 2%);
-}
-
-.webbar_item_text {
-    font-size: .7875rem;
-    line-height: 1.35;
-    padding: calc(1.5rem / 4) 0;
-    display: block;
-    white-space: nowrap;
+  .card_media {
+    border-radius: 2px 0 0 2px;
+    transition: background 100ms ease-in;
+    min-height: (1.5rem * 3.5);
+    width: (1.5rem * 4);
+    float: none;
+  }
 }
 
 /* hides element visually, but provides something for screen readers to read */
 .element-invisible {
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
 }

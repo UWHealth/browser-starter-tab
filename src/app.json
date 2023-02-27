@@ -135,7 +135,7 @@
           },
           {
             "path": "/depts/uwhealth/ni/",
-            "iconName": "ico_ni.svg",
+            "iconName": "icon-illinois.svg",
             "text": "for Northern Illinois"
           },
           {
@@ -145,7 +145,7 @@
           },
           {
             "path": "/depts/uwhealth/ni/app/",
-            "iconName": "ico_u.svg",
+            "iconName": "icon-apps.svg",
             "text": "Apps+"
           }
         ]

@@ -1,7 +1,8 @@
 ---
+import HeaderImage from '$components/HeaderImage.svelte';
 import BannerNav from '$components/BannerNav.svelte';
 import StateCookieToggleBtn from '$components/StateCookieToggleBtn.svelte';
-import { STATE_COOKIE_VALUES, STATE_COOKIE_VALUE_ILLINOIS } from '$utils/stateCookie';
+import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
 import json from '../app.json';
 
 
@@ -24,9 +25,11 @@ const { title, header } = json;
 const { ariaLabel: headerAriaLabel, iconName } = header;
 ---
 
-<div class:list={['hero flex flex-v vh-4-10', { 'illinois': state === STATE_COOKIE_VALUE_ILLINOIS }]}>
+<div class="hero flex flex-v vh-4-10">
 
   <header class="header flex-center flex flex-v">
+
+    <HeaderImage position={STATE_COOKIE_VALUES.indexOf(state)} total={STATE_COOKIE_VALUES.length} />
 
     <img src={`${import.meta.env.BASE_URL}${iconName}`} class="pad_h_2 flex-center" alt={title} style="z-index:1;">
 
@@ -42,8 +45,54 @@ const { ariaLabel: headerAriaLabel, iconName } = header;
 
 </div>
 
-<style>
-  .illinois {
-    background-image: url('/src/assets/bg_hero_temp_illinois.jpg');
+
+<style lang="scss">
+  .hero {
+    justify-content: space-between;
+    max-height: (1.5rem * 26);
+    position: relative;
+    width: 100%;
+    padding: 0;
+    flex-shrink: 2;
+    flex-grow: .5;
+  }
+
+  .header {
+    position: relative;
+
+    // btm line
+    &:before {
+      content: '';
+      z-index: 1;
+      position: absolute;
+      display: block;
+      bottom: -1px;
+      width: 100%;
+      max-width: 1080px;
+      height: 2px;
+      opacity: .7;
+      background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 25%, rgb(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
+    }
+    // bottom fade-out overlay
+    &:after {
+      content: '';
+      z-index: 1;
+      display: block;
+      position: absolute;
+      top: 100%;
+      bottom: 0;
+      width: 100%;
+      height: 249px;
+      background: transparent linear-gradient(180deg, #F6FCFD3B 0%, #F0F8F9C7 37%, #EEF6F8 70%, #EDF5F7 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+
+  .toggle-state-wrapper {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
   }
 </style>

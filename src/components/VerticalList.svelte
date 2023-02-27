@@ -14,3 +14,22 @@
     {#each links as link}<VerticalListLink {...link} />{/each}
   </ul>
 </nav>
+
+
+<style lang="scss">
+  @import './src/styles/colors';
+
+  .header_gray {
+    font-size: 13.17957px;
+    font-size: .82372rem;
+    line-height: 1.821;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-family: opensans, helvetica, arial, sans-serif;
+    color: #8da1ad !important;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.36px;
+  }
+</style>

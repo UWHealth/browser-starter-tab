@@ -18,4 +18,13 @@ export const getStateCookie = () => {
   return stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue;
 };
 
+export const getStateCookiePrettyValue = (stateCookieValue) => {
+  switch (stateCookieValue) {
+    case 'il':
+      return 'Illinois';
+    default:
+      return 'Wisconsin';
+  };
+};
+
 export const setLocalStateCookie = (value) => Cookies.set(LOCAL_STATE_COOKIE_KEY, value);

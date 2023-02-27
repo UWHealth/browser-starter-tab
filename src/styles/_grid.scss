@@ -1,9 +1,9 @@
 @use "sass:math";
 
 @mixin grid($columns, $context: $grid-columns) {
-    width: #{width($columns)};
+  width: #{width($columns)};
 }
 
 @function width($columns, $context: $grid-columns) {
-    @return math.percentage(calc($columns / $context));
+  @return math.percentage(calc($columns / $context));
 }

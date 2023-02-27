@@ -42,3 +42,36 @@ links.forEach(link => link.alignment === 'left' ? lFooterLinks.push(link): rFoot
     </div>
   </div>
 </footer>
+
+
+<style lang="scss">
+  .row-even {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+  }
+
+  .webbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: #CBE1E7;
+    padding: .5rem 2% .2rem .5%;
+  }
+
+  .webbar_item-group {
+    display: inline-flex;
+    flex: 1 1 75%;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: 75%;
+
+    @media only screen and (max-width: (calc(640px/13.75px) * 1em)) {
+      justify-content: space-between;
+    }
+  }
+</style>

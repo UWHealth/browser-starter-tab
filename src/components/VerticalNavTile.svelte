@@ -1,7 +1,4 @@
 <script>
-  import { fade } from 'svelte/transition';
-
-
   export let path = '';
   export let iconName = '';
   export let text = '';
@@ -11,16 +8,17 @@
   const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'U-Connect Experiences', `U-Connect ${text.length ? text : ''}`]);
 </script>
 
+
 <svelte:head>
   <link rel="prefetch" href={iconSrc}>
 </svelte:head>
 
 
-<a href={href} class="link_naked" on:click={handleClick} in:fade>
+<a href={href} class="link_naked" on:click={handleClick}>
   <div class="card card-short box_flag space_b_half">
 
     <header class="box_flag_media bg-blue pad_h_quarter card_media">
-      <img src={iconSrc} class="card_head_image" style="width: 4rem; height: 4rem" alt="">
+      <img src={iconSrc} class="card_head_image" alt={`${text} icon`}>
     </header>
 
     <div class="box_flag_body">
@@ -39,3 +37,12 @@
 
   </div>
 </a>
+
+
+<style lang="scss">
+  .card_head_image {
+    padding: 0;
+    height: 32px;
+    width: 32px;
+  }
+</style>

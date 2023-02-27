@@ -14,3 +14,13 @@
     {#each tiles as tile}<BannerNavTile {...tile} />{/each}
   </div>
 </nav>
+
+
+<style lang="scss">
+  .hero_nav {
+    z-index: 1;
+    flex-shrink: 1;
+    flex-grow: .5;
+    flex-basis: 9rem;
+  }
+</style>
