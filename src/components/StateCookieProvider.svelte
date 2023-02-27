@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
-  import { stateCookie } from '../utils/stores';
-  import { setLocalStateCookie, STATE_COOKIE_VALUE_WISCONSIN } from '../utils/stateCookie';
+  import { stateCookie } from '$utils/stores';
+  import { setLocalStateCookie, STATE_COOKIE_VALUE_WISCONSIN } from '$utils/stateCookie';
 
 
   export let state;

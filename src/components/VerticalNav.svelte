@@ -1,5 +1,5 @@
 <script>
-  import VerticalNavTile from './VerticalNavTile.svelte';
+  import VerticalNavTile from '$components/VerticalNavTile.svelte';
 
 
   export let ariaLabel;

@@ -1,6 +1,6 @@
 <script>
-  import { stateCookie } from '../utils/stores';
-  import { setLocalStateCookie } from '../utils/stateCookie';
+  import { stateCookie } from '$utils/stores';
+  import { getStateCookiePrettyValue, setLocalStateCookie } from '$utils/stateCookie';
 
 
   export let state;

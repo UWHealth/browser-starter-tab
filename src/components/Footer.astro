@@ -1,5 +1,5 @@
 ---
-import FooterLink from './FooterLink.svelte';
+import FooterLink from '$components/FooterLink.svelte';
 
 
 interface Footer {
@@ -25,6 +25,7 @@ let lFooterLinks = [];
 let rFooterLinks = [];
 links.forEach(link => link.alignment === 'left' ? lFooterLinks.push(link): rFooterLinks.push(link));
 ---
+
 
 <footer class="webbar" aria-labelledby="Website-References">
   <h2 class="element-invisible" id="Website-References">{ariaLabel}</h2>

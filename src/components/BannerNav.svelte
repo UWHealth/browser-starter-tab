@@ -1,10 +1,11 @@
 <script>
-  import BannerNavTile from './BannerNavTile.svelte';
+  import BannerNavTile from '$components/BannerNavTile.svelte';
 
 
   export let ariaLabel;
   export let tiles;
 </script>
+
 
 <nav class="hero_nav bg-white flex flex-center" aria-labelledby="Employee-Apps">
   <h2 class="element-invisible" id="Employee-Apps">{ariaLabel}</h2>
