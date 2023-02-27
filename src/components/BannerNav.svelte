@@ -7,7 +7,7 @@
 </script>
 
 
-<nav class="hero_nav bg-white flex flex-center" aria-labelledby="Employee-Apps">
+<nav class="hero_nav flex flex-center" aria-labelledby="Employee-Apps">
   <h2 class="element-invisible" id="Employee-Apps">{ariaLabel}</h2>
 
   <div class="card-group flex" id="nav-all-employees">

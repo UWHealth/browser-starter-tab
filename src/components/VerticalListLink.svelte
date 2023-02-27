@@ -7,7 +7,7 @@
 
 
 <li class="list_nav_item">
-  <a href={href} class="list_nav_link" on:click={handleClick}>
+  <a href={href} class="list_nav_link " on:click={handleClick}>
     <t4 type="content" name="Tools-2-text" output="normal" modifiers="striptags,htmlentities" />
 
     <slot name="text">

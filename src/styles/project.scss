@@ -108,13 +108,15 @@ html {
   flex-basis: auto;
 
   @media only screen and (max-height: (calc(785px/$base-px) * 1em)) {
-    height: 42vh;
-    flex-basis: 42vh;
+    // height: 42vh;
+    // flex-basis: 42vh;
   }
 
   @media only screen and (max-height: (calc(700px/$base-px) * 1em)) {
-    height: 36vh;
-    flex-basis: 36vh;
+    // height: 36vh;
+    // flex-basis: 36vh;
+    height: 42vh;
+    flex-basis: 42vh;
   }
 }
 

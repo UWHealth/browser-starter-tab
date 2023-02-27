@@ -342,11 +342,20 @@ ul {
 }
 
 @media only screen and (max-width:640px) {
+  .smalls_pad_t_none {
+    padding-top: 0;
+  }
+
   .smalls_pad_h_half {
     padding-right: 14px;
     padding-right: .875rem;
     padding-left: 14px;
     padding-left: .875rem
+  }
+
+  .smalls_pad_b_half {
+    margin-bottom: 12px;
+    margin-bottom: .75rem
   }
 }
 

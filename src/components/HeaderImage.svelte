@@ -60,7 +60,9 @@
   }
 </script>
 
+
 <svelte:options namespace="svg"/>
+
 
 <svg class="header_image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
   <defs>
@@ -115,9 +117,11 @@
   </g>
 </svg>
 
+
 <style lang="scss">
   .header_image {
     position: absolute;
+    min-height: 60vh;
   }
 
   .bg {

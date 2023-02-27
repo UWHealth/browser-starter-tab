@@ -52,6 +52,7 @@ links.forEach(link => link.alignment === 'left' ? lFooterLinks.push(link): rFoot
   }
 
   .webbar {
+    z-index: 2;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -71,7 +72,7 @@ links.forEach(link => link.alignment === 'left' ? lFooterLinks.push(link): rFoot
     max-width: 75%;
 
     @media only screen and (max-width: (calc(640px/13.75px) * 1em)) {
-      justify-content: space-between;
+      justify-content: space-around;
     }
   }
 </style>
