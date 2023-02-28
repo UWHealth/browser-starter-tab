@@ -10,12 +10,12 @@ export const STATE_COOKIE_VALUES = [STATE_COOKIE_VALUE_WISCONSIN, STATE_COOKIE_V
 
 export const getLocalStateCookie = () => Cookies.get(LOCAL_STATE_COOKIE_KEY);
 export const getServerStateCookie = () => Cookies.get(SERVER_STATE_COOKIE_KEY);
-export const getStateCookie = () => {
+export const getInitialStateCookie = () => {
   const stateLocalCookieValue = getLocalStateCookie();
   const stateServerCookieValue = getServerStateCookie();
 
   // local > server
-  return stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue;
+  return (stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue) || STATE_COOKIE_VALUE_WISCONSIN;
 };
 
 export const getStateCookiePrettyValue = (stateCookieValue) => {
