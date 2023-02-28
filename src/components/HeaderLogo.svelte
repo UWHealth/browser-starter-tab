@@ -20,7 +20,7 @@
 
 
 <style lang="scss">
-  @import './src/styles/project';
+  @import './src/styles/vars';
 
   .logo_wrapper {
     z-index: 1;
