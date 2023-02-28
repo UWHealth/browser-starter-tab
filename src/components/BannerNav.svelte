@@ -19,8 +19,19 @@
 <style lang="scss">
   .hero_nav {
     z-index: 1;
+    position: relative;
     flex-shrink: 1;
     flex-grow: .5;
     flex-basis: 9rem;
+
+    // bottom fade-out overlay
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent linear-gradient(180deg, #F6FCFD3B 0%, #F0F8F9C7 37%, #EEF6F8 70%, #EDF5F7 100%) 0% 0% no-repeat padding-box;
+    }
   }
 </style>
