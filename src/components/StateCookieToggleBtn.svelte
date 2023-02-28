@@ -3,6 +3,9 @@
   import { getStateCookiePrettyValue, setLocalStateCookie } from '$utils/stateCookie';
 
 
+  let classes;
+  export { classes as class };
+
   export let state;
 
   function handleClick() {
@@ -15,7 +18,7 @@
 </script>
 
 
-<button type="button" id={state} class={`${$stateCookie === state ? 'active' : ''} state_cookie_toggle_btn underline_bar`} aria-label={state} on:click={handleClick}>{getStateCookiePrettyValue(state)}</button>
+<button type="button" id={state} class={`${$stateCookie === state ? 'active' : ''} state_cookie_toggle_btn underline_bar ${classes}`} aria-label={state} on:click={handleClick}>{getStateCookiePrettyValue(state)}</button>
 
 
 <style lang="scss">
