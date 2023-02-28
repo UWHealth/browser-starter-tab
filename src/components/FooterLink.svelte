@@ -1,11 +1,11 @@
 <script>
   export let href;
-  export let iconName;
+  export let icon;
   export let text;
   export let alignment;
 
   let handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
-  let iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
+  let iconSrc = `${import.meta.env.BASE_URL}${icon}`;
 </script>
 
 

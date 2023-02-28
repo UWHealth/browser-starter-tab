@@ -1,9 +1,9 @@
 ---
 import HeaderImage from '$components/HeaderImage.svelte';
+import HeaderLogo from '$components/HeaderLogo.svelte';
 import BannerNav from '$components/BannerNav.svelte';
 import StateCookieToggleBtn from '$components/StateCookieToggleBtn.svelte';
 import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
-import json from '../app.json';
 
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
     ariaLabel: string;
     tiles: Array<{
       href: string;
-      iconName: string;
+      icon: string;
       text: string;
     }>
   },
@@ -20,9 +20,6 @@ interface Props {
 
 const { bannerNav, state } = Astro.props;
 const { ariaLabel, tiles } = bannerNav;
-
-const { title, header } = json;
-const { ariaLabel: headerAriaLabel, iconName } = header;
 ---
 
 <div class="hero flex flex-v vh-4-10">
@@ -31,9 +28,7 @@ const { ariaLabel: headerAriaLabel, iconName } = header;
 
     <HeaderImage position={STATE_COOKIE_VALUES.indexOf(state)} total={STATE_COOKIE_VALUES.length} />
 
-    <img src={`${import.meta.env.BASE_URL}${iconName}`} class="pad_h_2 flex-center" alt={title} style="z-index:1;">
-
-    <h1 class="element-invisible">{headerAriaLabel}</h1>
+    <HeaderLogo  />
 
     <div class="toggle-state-wrapper">
       {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}

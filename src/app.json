@@ -2,26 +2,26 @@
   "title": "UW Health Launch Page",
   "header": {
     "ariaLabel": "Internal web portal for UW Health",
-    "iconName": "logo-uw.png"
+    "logo": "logo-uw.png"
   },
   "footer": {
     "ariaLabel": "Website References",
     "links": [{
         "alignment": "left",
         "href": "https://www.google.com",
-        "iconName": "icon-google.png",
+        "icon": "icon-google.png",
         "text": "google.com"
       },
       {
         "alignment": "right",
         "href": "https://www.uwhealth.org",
-        "iconName": "icon-uwhealth.png",
+        "icon": "icon-uwhealth.png",
         "text": "uwhealth.org"
       },
       {
         "alignment": "right",
         "href": "https://www.med.wisc.edu",
-        "iconName": "icon-smph.png",
+        "icon": "icon-smph.png",
         "text": "med.wisc.edu"
       }
     ]
@@ -33,17 +33,17 @@
         "ariaLabel": "Common Tools",
         "tiles": [{
             "href": "https://outlook.office365.com/owa",
-            "iconName": "ico_mail.svg",
+            "icon": "ico_mail.svg",
             "text": "Outlook Webmail"
           },
           {
             "href": "https://uconnect.wisc.edu/directory",
-            "iconName": "ico_directory.svg",
+            "icon": "ico_directory.svg",
             "text": "Directory"
           },
           {
             "href": "https://uwhmytime.uwhealth.org",
-            "iconName": "ico_clock.svg",
+            "icon": "ico_clock.svg",
             "text": "MyTime"
           }
         ]
@@ -52,22 +52,22 @@
         "ariaLabel": "U-Connect User Areas",
         "tiles": [{
             "path": "/",
-            "iconName": "ico_u.svg",
+            "icon": "ico_u.svg",
             "text": "for Everyone"
           },
           {
             "path": "/?tab=clinicians",
-            "iconName": "ico_physicians.svg",
+            "icon": "ico_physicians.svg",
             "text": "for Physicians/APPs"
           },
           {
             "path": "/?tab=nurses",
-            "iconName": "ico_nurses.svg",
+            "icon": "ico_nurses.svg",
             "text": "for Nurses"
           },
           {
             "path": "/?tab=managers",
-            "iconName": "ico_manager.svg",
+            "icon": "ico_manager.svg",
             "text": "for Managers"
           }
         ]
@@ -111,17 +111,17 @@
         "ariaLabel": "Common Tools",
         "tiles": [{
             "href": "https://outlook.office365.com/",
-            "iconName": "ico_mail.svg",
+            "icon": "ico_mail.svg",
             "text": "Outlook Webmail"
           },
           {
             "href": "https://uconnect.wisc.edu/directory",
-            "iconName": "ico_directory.svg",
+            "icon": "ico_directory.svg",
             "text": "Directory"
           },
           {
             "href": "https://apitass.swedishamerican.org/APIHC/TASS/WebPortal/APIHealthcare/Login.aspx",
-            "iconName": "ico_clock.svg",
+            "icon": "ico_clock.svg",
             "text": "Centricity TA/SS"
           }
         ]
@@ -130,22 +130,22 @@
         "ariaLabel": "U-Connect User Areas",
         "tiles": [{
             "path": "/",
-            "iconName": "ico_u.svg",
+            "icon": "ico_u.svg",
             "text": "for Everyone"
           },
           {
             "path": "/depts/uwhealth/ni/",
-            "iconName": "icon-illinois.svg",
+            "icon": "icon-illinois.svg",
             "text": "for Northern Illinois"
           },
           {
             "path": "/depts/uwhealth/ni/nursing-411/",
-            "iconName": "ico_nurses.svg",
+            "icon": "ico_nurses.svg",
             "text": "Nursing 411"
           },
           {
             "path": "/depts/uwhealth/ni/app/",
-            "iconName": "icon-apps.svg",
+            "icon": "icon-apps.svg",
             "text": "Apps+"
           }
         ]

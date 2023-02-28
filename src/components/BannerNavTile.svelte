@@ -1,9 +1,9 @@
 <script>
   export let href = '';
-  export let iconName = '';
+  export let icon = '';
   export let text = '';
 
-  const iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
+  const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
   const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Top/Main links', `${text.length ? text : ''}`]);
 </script>
 

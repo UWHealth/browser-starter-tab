@@ -1,10 +1,10 @@
 <script>
   export let path = '';
-  export let iconName = '';
+  export let icon = '';
   export let text = '';
 
   const href = `https://uconnect.wisc.edu${path}`;
-  const iconSrc = `${import.meta.env.BASE_URL}${iconName}`;
+  const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
   const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'U-Connect Experiences', `U-Connect ${text.length ? text : ''}`]);
 </script>
 
