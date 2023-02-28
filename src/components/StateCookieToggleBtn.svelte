@@ -8,6 +8,8 @@
   function handleClick() {
     stateCookie.set(state);
     setLocalStateCookie(state);
+
+    const _paq = typeof window !== 'undefined' && window._paq || [];
     _paq.push(['trackEvent', 'User Activity', 'State Toggle', state]);
   }
 </script>

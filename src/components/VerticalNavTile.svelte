@@ -5,6 +5,8 @@
 
   const href = `https://uconnect.wisc.edu${path}`;
   const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
+
+  const _paq = typeof window !== 'undefined' && window._paq || [];
   const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'U-Connect Experiences', `U-Connect ${text.length ? text : ''}`]);
 </script>
 

@@ -2,6 +2,7 @@
   export let href = '';
   export let text = '';
 
+  const _paq = typeof window !== 'undefined' && window._paq || [];
   const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Tools', `${text.length ? text : ''}`]);
 </script>
 

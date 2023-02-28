@@ -4,8 +4,10 @@
   export let text;
   export let alignment;
 
-  let handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
   let iconSrc = `${import.meta.env.BASE_URL}${icon}`;
+
+  const _paq = typeof window !== 'undefined' && window._paq || [];
+  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
 </script>
 
 
