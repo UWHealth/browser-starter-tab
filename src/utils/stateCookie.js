@@ -15,7 +15,7 @@ export const getInitialStateCookie = () => {
   const stateServerCookieValue = getServerStateCookie();
 
   // local > server
-  return (stateLocalCookieValue ? stateLocalCookieValue : stateServerCookieValue) || STATE_COOKIE_VALUE_WISCONSIN;
+  return stateLocalCookieValue || stateServerCookieValue;
 };
 
 export const getStateCookiePrettyValue = (stateCookieValue) => {
