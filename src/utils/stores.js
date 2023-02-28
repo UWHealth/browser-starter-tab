@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { getStateCookie } from './stateCookie';
+import { getInitialStateCookie } from './stateCookie';
 
 
-export const stateCookie = writable(getStateCookie());
+export const stateCookie = writable(getInitialStateCookie());
