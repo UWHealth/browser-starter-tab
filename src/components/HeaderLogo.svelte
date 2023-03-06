@@ -2,9 +2,12 @@
   import json from '../app.json';
 
 
+  let classes;
+  export { classes as class };
+
   const { title, header } = json;
   const { ariaLabel, logo } = header;
-  let logoSrc = `${import.meta.env.BASE_URL}${logo}`;
+  const logoSrc = `${import.meta.env.BASE_URL}${logo}`;
 </script>
 
 
@@ -13,8 +16,8 @@
 </svelte:head>
 
 
-<div class="logo_wrapper">
-  <img src={logoSrc} class="pad_h_2 flex-center" alt={title}>
+<div class="logo_wrapper {classes}">
+  <img src={logoSrc} class="logo" alt={title}>
   <h1 class="element-invisible">{ariaLabel}</h1>
 </div>
 
@@ -24,10 +27,12 @@
 
   .logo_wrapper {
     z-index: 1;
+    display: flex;
+    flex-grow: 1;
+    margin-top: 4rem;
+  }
 
-    @media only screen and (max-height: (calc(680px/$base-px) * 1em)) {
-      margin-top: 2rem;
-      min-height: 7rem;
-    }
+  .logo {
+    margin: auto 0;
   }
 </style>
