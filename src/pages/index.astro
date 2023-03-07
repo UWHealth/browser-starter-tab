@@ -4,7 +4,6 @@ import Header from '$components/Header.astro';
 import Footer from '$components/Footer.astro';
 import VerticalNav from '$components/VerticalNav.svelte';
 import VerticalList from '$components/VerticalList.svelte';
-import StateCookieProvider from '$components/StateCookieProvider.svelte';
 import json from '../app.json';
 
 
@@ -24,6 +23,20 @@ const {
       verticalNav,
       verticalList,
     } = s;
+  <script>
+    import { get } from 'svelte/store';
+    import { stateCookie } from '$utils/stores';
+    import { validateCookieValue, setLocalStateCookie, STATE_COOKIE_VALUE_WISCONSIN } from '$utils/stateCookie';
+
+    // ensure LOCAL_STATE_COOKIE_KEY is always set
+    // fallback to default Wisconsin value
+    const initial = get(stateCookie);
+    setLocalStateCookie( validateCookieValue(initial) ? initial : STATE_COOKIE_VALUE_WISCONSIN );
+
+    // track page view
+    const _paq = typeof window !== 'undefined' && window._paq || [];
+    _paq.push(['trackPageView', stateCookie]);
+  </script>
 
     return (
       <StateCookieProvider state={state} client:load>
@@ -43,7 +56,6 @@ const {
             </div>
           </div>
         </div>
-      </StateCookieProvider>
     );
   })}
 
