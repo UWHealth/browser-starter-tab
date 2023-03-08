@@ -132,6 +132,7 @@
 <style lang="scss">
   .header_image {
     position: absolute;
+    top: 0;
     min-height: 60vh;
   }
 

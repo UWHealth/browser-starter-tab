@@ -53,11 +53,11 @@
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
-    padding: 2rem 0;
+    padding: 3rem 0 2rem;
 
     @media only screen and (min-width: (calc(640px/$base-px) * 1em)) {
       justify-content: center;
-      padding: 3rem 0;
+      padding: 3rem 0 1rem;
     }
 
     // btm line

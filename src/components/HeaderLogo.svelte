@@ -25,10 +25,21 @@
     z-index: 1;
     display: flex;
     flex-grow: 1;
-    margin-top: 4rem;
+    margin: 2rem auto;
+
+    @media only screen and (min-height: (calc(600px/$base-px) * 1em)) {
+      margin: auto;
+    }
   }
 
   .logo {
     margin: auto 0;
+
+    @media only screen and (min-height: (calc(640px/$base-px) * 1em)) {
+      margin-bottom: 3rem;
+    }
+    @media only screen and (min-height: (calc(900px/$base-px) * 1em)) {
+      margin-bottom: 4rem;
+    }
   }
 </style>

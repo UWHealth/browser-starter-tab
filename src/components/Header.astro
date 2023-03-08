@@ -27,6 +27,8 @@ import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
 
 
 <style lang="scss">
+  @import './src/styles/vars';
+
   .hero {
     overflow: hidden;
     position: relative;
@@ -34,6 +36,10 @@ import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
 
   .header {
     flex-basis: 44vh;
+
+    @media only screen and (min-width: (calc(640px/$base-px) * 1em)) {
+      flex-basis: 45vh;
+    }
   }
 
   .toggle_state_wrapper {
