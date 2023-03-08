@@ -3,9 +3,9 @@
   export let icon;
   export let text;
   export let alignment;
-
-  let classes;
+  let classes = '';
   export { classes as class };
+
 
   let iconSrc = `${import.meta.env.BASE_URL}${icon}`;
 

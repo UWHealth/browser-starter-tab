@@ -2,6 +2,9 @@
   export let path = '';
   export let icon = '';
   export let text = '';
+  let classes = '';
+  export { classes as class };
+
 
   const href = `https://uconnect.wisc.edu${path}`;
   const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
@@ -11,9 +14,9 @@
 </script>
 
 
+  <a href={href} class="link_naked {classes}" on:click={handleClick}>
 
 
-<a href={href} class="link_naked" on:click={handleClick}>
   <div class="card card-short box_flag space_b_half">
 
     <header class="box_flag_media bg-blue pad_h_quarter card_media">

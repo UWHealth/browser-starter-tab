@@ -2,6 +2,10 @@
   export let href = '';
   export let icon = '';
   export let text = '';
+  export let visible = false;
+  let classes = '';
+  export { classes as class };
+
 
   const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
 

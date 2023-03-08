@@ -1,7 +1,8 @@
 <script>
   import BannerNavTile from '$components/BannerNavTile.svelte';
 
-  let classes;
+
+  let classes = '';
   export { classes as class };
 
   export let ariaLabel;

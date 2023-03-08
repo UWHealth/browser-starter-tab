@@ -2,8 +2,9 @@
   import json from '../app.json';
 
 
-  let classes;
+  let classes = '';
   export { classes as class };
+
 
   const { title, header } = json;
   const { ariaLabel, logo } = header;

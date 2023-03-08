@@ -3,6 +3,8 @@
   import { quadInOut, circOut } from 'svelte/easing';
   export let position = 0;
   export let total = 2;
+  let classes = '';
+  export { classes as class };
 
   // Necessary for initial calculation. Recreated later in reactive statement.
   let percent = (position) / (total - 1);
@@ -65,6 +67,7 @@
 
 
 <svg class="header_image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
+<svg class="header_image {classes}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
   <defs>
     <linearGradient id="bg-gradient"
       x1="0" y1="1000" x2="1950" y2="0"

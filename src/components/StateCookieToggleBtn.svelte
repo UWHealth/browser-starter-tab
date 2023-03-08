@@ -3,10 +3,10 @@
   import { getStateCookiePrettyValue, setLocalStateCookie } from '$utils/stateCookie';
 
 
-  let classes;
+  export let state;
+  let classes = '';
   export { classes as class };
 
-  export let state;
 
   function handleClick() {
     stateCookie.set(state);
