@@ -7,22 +7,18 @@ import VerticalList from '$components/VerticalList.svelte';
 import json from '../app.json';
 
 
-const {
-  title,
-  footer,
-  states,
-} = json;
+const { title, footer } = json;
+
+
+declare global {
+  interface Window {
+    _paq:any;
+  }
+}
 ---
 
 <Layout title={title}>
 
-  {states.map(s => {
-    const {
-      state,
-      bannerNav,
-      verticalNav,
-      verticalList,
-    } = s;
   <script>
     import { get } from 'svelte/store';
     import { stateCookie } from '$utils/stores';
@@ -38,27 +34,39 @@ const {
     _paq.push(['trackPageView', stateCookie]);
   </script>
 
-    return (
-      <StateCookieProvider state={state} client:load>
-        <div class="flex flex-v flex-wrap">
+  <div class="flex flex-v flex-wrap animateIn">
 
-          <Header bannerNav={bannerNav} state={state} />
+    <Header />
 
-          <div class="flex vh-6-10" style="z-index:1;">
-            <div class="wrap pad_b_2 smalls_pad_h_half">
-              <div class="row">
+    <div class="flex vh-6-10" style="z-index:1;">
+      <div class="wrap pad_b_2 smalls_pad_h_half">
+        <div class="row">
 
-                <VerticalNav {...verticalNav} client:load />
+          <VerticalNav client:load />
 
-                <VerticalList {...verticalList} client:load />
+          <VerticalList client:load />
 
-              </div>
-            </div>
-          </div>
         </div>
-    );
-  })}
+      </div>
+    </div>
+
+  </div>
 
   <Footer footer={footer} />
 
 </Layout>
+
+
+<style>
+  .animateIn {
+    animation: fade-in 1000ms 600ms normal both;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

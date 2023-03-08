@@ -4,22 +4,6 @@ import HeaderLogo from '$components/HeaderLogo.svelte';
 import BannerNav from '$components/BannerNav.svelte';
 import StateCookieToggleBtn from '$components/StateCookieToggleBtn.svelte';
 import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
-
-
-interface Props {
-  bannerNav: {
-    ariaLabel: string;
-    tiles: Array<{
-      href: string;
-      icon: string;
-      text: string;
-    }>
-  },
-  state: string,
-};
-
-const { bannerNav, state } = Astro.props;
-const { ariaLabel, tiles } = bannerNav;
 ---
 
 
@@ -27,15 +11,15 @@ const { ariaLabel, tiles } = bannerNav;
 
   <header class="header flex-center flex flex-v">
 
-    <HeaderImage position={STATE_COOKIE_VALUES.indexOf(state)} total={STATE_COOKIE_VALUES.length} />
+    <HeaderImage client:load />
 
-    <HeaderLogo  />
+    <HeaderLogo client:load />
 
-    <div class="toggle-state-wrapper">
+    <div class="toggle_state_wrapper">
       {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}
     </div>
 
-    <BannerNav ariaLabel={ariaLabel} tiles={tiles} client:load />
+    <BannerNav client:load />
 
   </header>
 

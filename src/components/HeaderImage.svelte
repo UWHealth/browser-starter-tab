@@ -1,10 +1,18 @@
 <script>
   import { tweened, spring } from 'svelte/motion';
   import { quadInOut, circOut } from 'svelte/easing';
-  export let position = 0;
-  export let total = 2;
+  import { stateCookie } from '$utils/stores';
+  import json from '../app.json';
+
+
   let classes = '';
   export { classes as class };
+
+
+  const { states } = json;
+  const keys = Object.keys(states);
+  const total = keys.length;
+  let position = (total - 1) / 2;
 
   // Necessary for initial calculation. Recreated later in reactive statement.
   let percent = (position) / (total - 1);
@@ -47,6 +55,7 @@
 
   // Reactive statements
   $: percent = (position) / (total - 1);
+  $: position = keys.indexOf($stateCookie);
 
   // Change animations based on `percent` changing
   $: {
@@ -66,7 +75,6 @@
 <svelte:options namespace="svg"/>
 
 
-<svg class="header_image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
 <svg class="header_image {classes}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
   <defs>
     <linearGradient id="bg-gradient"

@@ -26,9 +26,8 @@
       }
     ]
   },
-  "states": [
-    {
-      "state": "wi",
+  "states": {
+    "wi": {
       "bannerNav": {
         "ariaLabel": "Common Tools",
         "tiles": [{
@@ -105,8 +104,7 @@
         ]
       }
     },
-    {
-      "state": "il",
+    "il": {
       "bannerNav": {
         "ariaLabel": "Common Tools",
         "tiles": [{
@@ -184,5 +182,69 @@
         ]
       }
     }
-  ]
+  },
+  "fallbackState": {
+    "bannerNav": {
+      "ariaLabel": "Common Tools",
+      "tiles": [{
+          "icon": "ico_mail.svg",
+          "text": "██████████"
+        },
+        {
+          "icon": "ico_directory.svg",
+          "text": "██████"
+        },
+        {
+          "icon": "ico_clock.svg",
+          "text": "█████"
+        }
+      ]
+    },
+    "verticalNav": {
+      "ariaLabel": "U-Connect User Areas",
+      "tiles": [{
+          "icon": "ico_u.svg",
+          "text": "███████"
+        },
+        {
+          "icon": "ico_u.svg",
+          "text": "██████████"
+        },
+        {
+          "icon": "ico_u.svg",
+          "text": "██████"
+        },
+        {
+          "icon": "ico_u.svg",
+          "text": "███████"
+        }
+      ]
+    },
+    "verticalList": {
+      "ariaLabel": "Tools",
+      "links": [
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        },
+        {
+          "text": "██████████"
+        }
+      ]
+    }
+  }
 }

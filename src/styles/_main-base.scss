@@ -5,7 +5,13 @@ html {
 }
 
 a {
-  color: #065DBA
+  color: #065DBA;
+
+  .fallback & {
+    color: #096295 !important;
+    letter-spacing: -0.1em !important;
+    opacity: .75;
+  }
 }
 
 .highlight_blue {

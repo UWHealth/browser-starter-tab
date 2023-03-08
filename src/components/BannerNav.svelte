@@ -1,37 +1,57 @@
 <script>
+  import NavGroup from '$components/NavGroup.svelte';
   import BannerNavTile from '$components/BannerNavTile.svelte';
+  import { stateCookie } from '$utils/stores';
+  import { getXIncrements } from '$utils/getXIncrements';
+  import json from '../app.json';
 
 
   let classes = '';
   export { classes as class };
 
-  export let ariaLabel;
-  export let tiles;
-</script>
 
+  const { states, fallbackState } = json;
+  const keys = Object.keys(states);
+
+  $: currentState = states[$stateCookie] || fallbackState;
+  $: ariaLabel = currentState.bannerNav.ariaLabel;
+
+  const xIncrements = getXIncrements(keys);
+</script>
 
 
 <nav class="hero_nav {classes}" aria-labelledby={ariaLabel}>
   <h2 class="element-invisible" id={ariaLabel}>{ariaLabel}</h2>
-  <NavGroup {stateIndex} {x} {xIncrements} class="flex nav_group">
-    {#each tiles as tile}<BannerNavTile {...tile} />{/each}
-  </NavGroup>
+
+  {#each keys as key, index}
+
+    {#if $stateCookie}
+      <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true} class="flex nav_group">
+        {#each states[key].bannerNav.tiles as tile}
+          <BannerNavTile visible={!!$stateCookie} {...tile} />
+        {/each}
+      </NavGroup>
+    {/if}
+
+    {#if index === keys.length - 1 && !$stateCookie}
+      <NavGroup x={0} active={true} class="fallback flex nav_group">
+        {#each fallbackState.bannerNav.tiles as tile}<BannerNavTile visible={!$stateCookie} {...tile} />{/each}
+      </NavGroup>
+    {/if}
+
+  {/each}
+
 </nav>
 
 
 <style lang="scss">
   @import './src/styles/vars';
 
-  // .nav_group {
-  //   @media only screen and (min-width: (calc(640px/$base-px) * 1em)) {
-  //     grid-column-gap: 3rem;
-  //   }
-  // }
-
   .hero_nav {
     z-index: 1;
     position: relative;
     display: grid;
+    grid-template-columns: 1fr;
     width: 100%;
     padding: 2rem 0;
 
@@ -67,5 +87,9 @@
       height: 100%;
       background: transparent linear-gradient(180deg, #F6FCFD3B 0%, #F0F8F9C7 37%, #EEF6F8 70%, #EDF5F7 100%) 0% 0% no-repeat padding-box;
     }
+  }
+
+  .hero_nav :global(.nav_group) {
+    justify-content: center;
   }
 </style>

@@ -1,21 +1,52 @@
 <script>
+  import NavGroup from '$components/NavGroup.svelte';
   import VerticalListLink from '$components/VerticalListLink.svelte';
+  import { stateCookie } from '$utils/stores';
+  import { getXIncrements } from '$utils/getXIncrements';
+  import json from '../app.json';
 
 
-  export let ariaLabel;
-  export let links;
   let classes = '';
   export { classes as class };
 
 
+  const { states, fallbackState } = json;
+  const keys = Object.keys(states);
+
+  $: currentState = states[$stateCookie] || fallbackState;
+  $: ariaLabel = currentState.verticalList.ariaLabel;
+
+  const xIncrements = getXIncrements(keys);
 </script>
 
 
-  <h2 class="header_gray pad_b_half" id="Tools">{ariaLabel}</h2>
 <nav class="wrapper column c-4-12 push-1-12 smalls-push-0 small_full pad_t_half smalls_pad_b_half {classes}" aria-labelledby="Tools">
+  {#each keys as key, index}
+    <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true}>
+      <h2 class="header_gray pad_b_half" id="Tools">{ariaLabel}</h2>
+    </NavGroup>
+  {/each}
 
-  <ul class="list_naked list_nav">
-    {#each links as link}<VerticalListLink {...link} />{/each}
+  <ul class="wrapper list_naked list_nav">
+    {#each keys as key, index}
+
+      {#if $stateCookie}
+        <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true}>
+          {#each states[key].verticalList.links as link}
+            <VerticalListLink visible={!!$stateCookie} {...link} />
+          {/each}
+        </NavGroup>
+      {/if}
+
+      {#if index === 0 && !$stateCookie}
+        <NavGroup x={0} active={true} class="fallback">
+          {#each fallbackState.verticalList.links as link}
+            <VerticalListLink visible={!$stateCookie} {...link} />
+          {/each}
+        </NavGroup>
+      {/if}
+
+    {/each}
   </ul>
 </nav>
 
@@ -25,12 +56,14 @@
     font-size: 13.17957px;
     font-size: .82372rem;
     line-height: 1.821;
-    margin-bottom: 24px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     font-weight: 700;
     color: #8da1ad !important;
-    margin-bottom: 0;
     text-transform: uppercase;
     letter-spacing: 1.36px;
+  }
+
+  .wrapper {
+    display: inline-grid;
   }
 </style>
