@@ -2,20 +2,16 @@
   export let href;
   export let icon;
   export let text;
-  export let alignment;
   let classes = '';
   export { classes as class };
 
 
   let iconSrc = `${import.meta.env.BASE_URL}${icon}`;
-
-  const _paq = typeof window !== 'undefined' && window._paq || [];
-  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Bottom Bar', `${text.length ? text : ''}`]);
 </script>
 
 
 {#if href}
-  <a href={href} class="link_naked txt_center webbar_item {classes}" on:click={handleClick} data-align={alignment}>
+  <a href={href} class="link_naked txt_center webbar_item {classes}">
     <img src={iconSrc} class="inline-block" width="36" height="36" alt="">
     <span class="webbar_item_text">{text}</span>
   </a>

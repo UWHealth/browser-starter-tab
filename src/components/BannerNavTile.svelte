@@ -8,13 +8,10 @@
 
 
   const iconSrc = `${import.meta.env.BASE_URL}${icon}`;
-
-  const _paq = typeof window !== 'undefined' && window._paq || [];
-  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Top/Main links', `${text.length ? text : ''}`]);
 </script>
 
 {#if visible}
-  <a class="card-flex card {classes}" href={href} on:click={handleClick}>
+  <a class="card-flex card {classes}" href={href}>
 
     {#if iconSrc}
       <div class="card-flex_head flex-center">

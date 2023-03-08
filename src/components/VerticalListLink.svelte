@@ -4,14 +4,12 @@
   export let visible = false;
   let classes = '';
   export { classes as class };
-
-  const _paq = typeof window !== 'undefined' && window._paq || [];
-  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Tools', `${text.length ? text : ''}`]);
 </script>
+
 
 {#if visible}
   <li class="list_nav_item {classes}">
-    <a href={href} class="list_nav_link " on:click={handleClick}>
+    <a href={href} class="list_nav_link">
       <slot name="text">
         {#if text}{text}{/if}
       </slot>
