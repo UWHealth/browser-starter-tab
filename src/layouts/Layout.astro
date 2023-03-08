@@ -20,6 +20,7 @@ const { title } = Astro.props;
     <meta name="robots" content="noindex">
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+    <link rel="dns-prefetch" href={PUBLIC_PIWIK_PRO_CONTAINER_URL} />
   </head>
 
   <body>
