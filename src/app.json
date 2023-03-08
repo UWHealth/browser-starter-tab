@@ -34,7 +34,7 @@
         "tiles": [{
             "href": "https://outlook.office365.com/owa",
             "icon": "ico_mail.svg",
-            "text": "Outlook Webmail"
+            "text": "Outlook Web App"
           },
           {
             "href": "https://uconnect.wisc.edu/directory",
@@ -112,7 +112,7 @@
         "tiles": [{
             "href": "https://outlook.office365.com/",
             "icon": "ico_mail.svg",
-            "text": "Outlook Webmail"
+            "text": "Outlook Web App"
           },
           {
             "href": "https://uconnect.wisc.edu/directory",
