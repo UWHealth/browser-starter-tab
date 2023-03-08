@@ -14,11 +14,6 @@
 </script>
 
 
-<svelte:head>
-  <link rel="prefetch" href={iconSrc}>
-</svelte:head>
-
-
 {#if href}
   <a href={href} class="link_naked txt_center webbar_item {classes}" on:click={handleClick} data-align={alignment}>
     <img src={iconSrc} class="inline-block" width="36" height="36" alt="">

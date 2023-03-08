@@ -11,9 +11,6 @@
 </script>
 
 
-<svelte:head>
-  <link rel="prefetch" href={iconSrc}>
-</svelte:head>
 
 
 <a href={href} class="link_naked" on:click={handleClick}>

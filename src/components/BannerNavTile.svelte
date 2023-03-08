@@ -10,9 +10,6 @@
 </script>
 
 
-<svelte:head>
-  <link rel="prefetch" href={iconSrc}>
-</svelte:head>
 
 
 <a class="card-flex card" href={href} on:click={handleClick}>

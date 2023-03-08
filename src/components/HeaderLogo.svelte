@@ -11,11 +11,6 @@
 </script>
 
 
-<svelte:head>
-  <link rel="prefetch" href={logoSrc}>
-</svelte:head>
-
-
 <div class="logo_wrapper {classes}">
   <img src={logoSrc} class="logo" alt={title}>
   <h1 class="element-invisible">{ariaLabel}</h1>
