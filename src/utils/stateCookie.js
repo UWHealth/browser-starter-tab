@@ -32,6 +32,7 @@ export const STATE_COOKIE_VALUES = [STATE_COOKIE_VALUE_WISCONSIN, STATE_COOKIE_V
 /**
  * Validates cookie value.
  */
+export const validateCookieValue = (value) => STATE_COOKIE_VALUES.includes(value);
 
 /**
  * Returns current local state cookie value.
