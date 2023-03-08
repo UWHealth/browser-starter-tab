@@ -20,14 +20,14 @@
 </script>
 
 
-<nav class="wrapper column c-4-12 push-1-12 smalls-push-0 small_full pad_t_half smalls_pad_b_half {classes}" aria-labelledby="Tools">
+<nav class="column display-inline_grid c-4-12 push-1-12 smalls-push-0 small_full pad_t_half smalls_pad_b_half {classes}" aria-labelledby="Tools">
   {#each keys as key, index}
     <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true}>
       <h2 class="header_gray pad_b_half" id="Tools">{ariaLabel}</h2>
     </NavGroup>
   {/each}
 
-  <ul class="wrapper list_naked list_nav">
+  <ul class="display-inline_grid list_naked list_nav">
     {#each keys as key, index}
 
       {#if $stateCookie}
@@ -61,9 +61,5 @@
     color: #8da1ad !important;
     text-transform: uppercase;
     letter-spacing: 1.36px;
-  }
-
-  .wrapper {
-    display: inline-grid;
   }
 </style>

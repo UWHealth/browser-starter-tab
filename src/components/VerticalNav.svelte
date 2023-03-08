@@ -19,7 +19,7 @@
 </script>
 
 
-<nav class="vertical_nav column c-7-12 small_full list_view pad_t_half smalls_pad_t_none {classes}" aria-labelledby="U-Connect-by-user-type">
+<nav class="column c-7-12 display-inline_grid small_full list_view pad_t_half smalls_pad_t_none {classes}" aria-labelledby="U-Connect-by-user-type">
   <h2 class="element-invisible" id="U-Connect-by-user-type">{ariaLabel}</h2>
 
   {#each keys as key, index}
@@ -41,10 +41,3 @@
   {/each}
 
 </nav>
-
-
-<style lang="scss">
-  .vertical_nav {
-    display: inline-grid;
-  }
-</style>

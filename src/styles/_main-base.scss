@@ -46,6 +46,10 @@ a {
   cursor: pointer
 }
 
+.overflow_h {
+  overflow: hidden;
+}
+
 .wrap {
   *zoom: 1
 }
@@ -414,6 +418,10 @@ img {
   @-ms-viewport {
     width: 768px
   }
+}
+
+.display-inline_grid {
+  display: inline-grid;
 }
 
 .list_naked {
