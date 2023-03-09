@@ -15,7 +15,7 @@
   $: currentState = states[$stateCookie] || fallbackState;
   $: ariaLabel = currentState.verticalNav.ariaLabel;
 
-  const xIncrements = getXIncrements(keys);
+  const xIncrements = getXIncrements(keys, [-150, 150]);
 </script>
 
 

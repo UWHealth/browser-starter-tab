@@ -59,13 +59,15 @@ declare global {
 
 <style>
   .animateIn {
-    animation: fade-in 1000ms 600ms normal both;
+    animation: fade-in 1000ms 500ms ease-in-out normal both;
   }
   @keyframes fade-in {
     from {
+      transform: translateY(-2vh);
       opacity: 0;
     }
     to {
+      transform: translateY(0);
       opacity: 1;
     }
   }
