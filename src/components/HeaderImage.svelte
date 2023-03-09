@@ -78,7 +78,7 @@
 <svelte:options namespace="svg"/>
 
 
-<svg class="header_image {classes}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
+<svg class="header_image {classes}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600" width="2000" height="600" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="bg-gradient"
       x1="0" y1="1000" x2="1950" y2="0"
@@ -135,7 +135,9 @@
 <style lang="scss">
   .header_image {
     position: absolute;
-    top: 0;
+    // top: 0;
+    width: 100%;
+    height: auto;
     min-height: 60vh;
   }
 
