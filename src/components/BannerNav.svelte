@@ -16,7 +16,7 @@
   $: currentState = states[$stateCookie] || fallbackState;
   $: ariaLabel = currentState.bannerNav.ariaLabel;
 
-  const xIncrements = getXIncrements(keys);
+  const xIncrements = getXIncrements(keys, [-275, 275]);
 </script>
 
 
@@ -67,14 +67,14 @@
       opacity: .7;
       position: absolute;
       display: block;
-      height: 2px;
+      height: 1px;
       width: 100%;
       max-width: 1080px;
       left: 0;
       right: 0;
       margin-left: auto;
       margin-right: auto;
-      background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 25%, rgb(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 25%, rgb(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
     }
 
     // bottom fade-out overlay

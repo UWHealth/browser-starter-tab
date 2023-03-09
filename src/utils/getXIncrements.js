@@ -1,6 +1,5 @@
-export const getXIncrements = (keys) => {
+export const getXIncrements = (keys, bounds = [-200, 200]) => {
   const length = keys.length;
-  const bounds = [-200, 200];
   const delta = Math.abs(bounds[0] - bounds[1]);
   const increments = delta / length;
 

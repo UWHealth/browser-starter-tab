@@ -1,6 +1,6 @@
 <script>
-  import { tweened, spring } from 'svelte/motion';
-  import { quadInOut, circOut } from 'svelte/easing';
+  import { tweened } from 'svelte/motion';
+  import { quadInOut, circOut, quintOut } from 'svelte/easing';
   import { stateCookie } from '$utils/stores';
   import json from '../app.json';
 
@@ -31,6 +31,9 @@
     return (fn) => fn(val, ...args);
   }
 
+  /** Creates a simulated version of a spring tween, but better performance */
+  const foregroundDuration = (f, t) => Math.sqrt(Math.abs(f[0] - t[0]) + 100) * 50;
+
   // Configuration
   const bigHexEnd = 110;
   const bokehEnd = 1800;
@@ -49,8 +52,8 @@
   const slicesTranslateX = createTween({ start: [0, 0], end: slicesEnd}, { duration: 200, easing: quadInOut })(tweened);
   const [ foregroundTop, foregroundMid, foregroundBottom ] = tweenedArray(
     getProgress([[0,0], [0,0], [0,0]], foregroundEnd, percent),
-    { stiffness: .125, damping: 1.75 },
-    spring
+    { easing: quintOut, duration: foregroundDuration, stiffness: .125, damping: 1.75 },
+    tweened
   );
 
   // Reactive statements
