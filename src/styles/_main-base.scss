@@ -391,6 +391,14 @@ img {
   vertical-align: middle
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::-moz-selection {
   background: #1081c9;
   color: #fff;
