@@ -4,49 +4,71 @@ import Header from '$components/Header.astro';
 import Footer from '$components/Footer.astro';
 import VerticalNav from '$components/VerticalNav.svelte';
 import VerticalList from '$components/VerticalList.svelte';
-import StateCookieProvider from '$components/StateCookieProvider.svelte';
 import json from '../app.json';
 
 
-const {
-  title,
-  footer,
-  states,
-} = json;
+const { title, footer } = json;
+
+
+declare global {
+  interface Window {
+    _paq:any;
+  }
+}
 ---
 
 <Layout title={title}>
 
-  {states.map(s => {
-    const {
-      state,
-      bannerNav,
-      verticalNav,
-      verticalList,
-    } = s;
+  <script>
+    import { get } from 'svelte/store';
+    import { stateCookie } from '$utils/stores';
+    import { validateCookieValue, setLocalStateCookie, STATE_COOKIE_VALUE_WISCONSIN } from '$utils/stateCookie';
 
-    return (
-      <StateCookieProvider state={state} client:load>
-        <div class="flex flex-v flex-wrap">
+    // ensure LOCAL_STATE_COOKIE_KEY is always set
+    // fallback to default Wisconsin value
+    const initial = get(stateCookie);
+    setLocalStateCookie( validateCookieValue(initial) ? initial : STATE_COOKIE_VALUE_WISCONSIN );
 
-          <Header bannerNav={bannerNav} state={state} />
+    // track page view
+    const _paq = typeof window !== 'undefined' && window._paq || [];
+    _paq.push(['trackPageView', stateCookie]);
+  </script>
 
-          <div class="flex vh-6-10" style="z-index:1;">
-            <div class="wrap pad_b_2 smalls_pad_h_half">
-              <div class="row">
+  <div class="flex flex-v flex-wrap animateIn">
 
-                <VerticalNav {...verticalNav} client:load />
+    <Header />
 
-                <VerticalList {...verticalList} client:load />
+    <div class="flex vh-6-10" style="z-index:1;">
+      <div class="wrap overflow_h pad_b_2 smalls_pad_h_half">
+        <div class="row">
 
-              </div>
-            </div>
-          </div>
+          <VerticalNav client:load />
+
+          <VerticalList client:load />
+
         </div>
-      </StateCookieProvider>
-    );
-  })}
+      </div>
+    </div>
+
+  </div>
 
   <Footer footer={footer} />
 
 </Layout>
+
+
+<style>
+  .animateIn {
+    animation: fade-in 1000ms 500ms ease-in-out normal both;
+  }
+  @keyframes fade-in {
+    from {
+      transform: translateY(-2vh);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

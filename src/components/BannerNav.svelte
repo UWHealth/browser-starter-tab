@@ -1,33 +1,85 @@
 <script>
+  import NavGroup from '$components/NavGroup.svelte';
   import BannerNavTile from '$components/BannerNavTile.svelte';
+  import { stateCookie } from '$utils/stores';
+  import { getXIncrements } from '$utils/getXIncrements';
+  import json from '../app.json';
 
-  let classes;
+
+  let classes = '';
   export { classes as class };
 
-  export let ariaLabel;
-  export let tiles;
+
+  const { states, fallbackState } = json;
+  const keys = Object.keys(states);
+
+  $: currentState = states[$stateCookie] || fallbackState;
+  $: ariaLabel = currentState.bannerNav.ariaLabel;
+
+  const xIncrements = getXIncrements(keys, [-275, 275]);
 </script>
 
 
-<nav class="hero_nav flex flex-center {classes}" aria-labelledby="Employee-Apps">
-  <h2 class="element-invisible" id="Employee-Apps">{ariaLabel}</h2>
+<nav class="hero_nav {classes}" aria-labelledby={ariaLabel}>
+  <h2 class="element-invisible" id={ariaLabel}>{ariaLabel}</h2>
 
-  <div class="card-group flex" id="nav-all-employees">
-    {#each tiles as tile}<BannerNavTile {...tile} />{/each}
-  </div>
+  {#each keys as key, index}
+
+    {#if $stateCookie}
+      <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true} class="flex nav_group">
+        {#each states[key].bannerNav.tiles as tile}
+          <BannerNavTile visible={!!$stateCookie} {...tile} />
+        {/each}
+      </NavGroup>
+    {/if}
+
+    {#if index === keys.length - 1 && !$stateCookie}
+      <NavGroup x={0} active={true} class="fallback flex nav_group">
+        {#each fallbackState.bannerNav.tiles as tile}<BannerNavTile visible={!$stateCookie} {...tile} />{/each}
+      </NavGroup>
+    {/if}
+
+  {/each}
+
 </nav>
 
 
 <style lang="scss">
+  @import './src/styles/vars';
+
   .hero_nav {
     z-index: 1;
     position: relative;
-    flex-shrink: 1;
-    flex-grow: .5;
-    flex-basis: 9rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 3rem 0 2rem;
+
+    @media only screen and (min-width: (calc(640px/$base-px) * 1em)) {
+      justify-content: center;
+      padding: 3rem 0 1rem;
+    }
+
+    // btm line
+    &:before {
+      content: '';
+      z-index: 1;
+      opacity: .7;
+      position: absolute;
+      display: block;
+      height: 1px;
+      width: 100%;
+      max-width: 1080px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 25%, rgb(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
+    }
 
     // bottom fade-out overlay
-    &:before {
+    &:after {
+      z-index: -1;
       content: '';
       display: block;
       position: absolute;
@@ -35,5 +87,9 @@
       height: 100%;
       background: transparent linear-gradient(180deg, #F6FCFD3B 0%, #F0F8F9C7 37%, #EEF6F8 70%, #EDF5F7 100%) 0% 0% no-repeat padding-box;
     }
+  }
+
+  .hero_nav :global(.nav_group) {
+    justify-content: center;
   }
 </style>

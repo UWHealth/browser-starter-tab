@@ -5,7 +5,13 @@ html {
 }
 
 a {
-  color: #065DBA
+  color: #065DBA;
+
+  .fallback & {
+    color: #096295 !important;
+    letter-spacing: -0.1em !important;
+    opacity: .75;
+  }
 }
 
 .highlight_blue {
@@ -38,6 +44,10 @@ section {
 
 a {
   cursor: pointer
+}
+
+.overflow_h {
+  overflow: hidden;
 }
 
 .wrap {
@@ -381,6 +391,10 @@ img {
   vertical-align: middle
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::-moz-selection {
   background: #1081c9;
   color: #fff;
@@ -408,6 +422,10 @@ img {
   @-ms-viewport {
     width: 768px
   }
+}
+
+.display-inline_grid {
+  display: inline-grid;
 }
 
 .list_naked {
@@ -465,13 +483,11 @@ img {
   max-width: 25.875rem;
   margin-bottom: 36px;
   margin-bottom: 2.25rem;
-  -webkit-transition: all .2s cubic-bezier(.4, 0, .2, 1);
-  transition: all .2s cubic-bezier(.4, 0, .2, 1)
+  transition: all .2s cubic-bezier(.4, 0, .2, 1);
 }
 
 .card_body {
-  -webkit-transition: all .25s cubic-bezier(.645, .045, .355, 1);
-  transition: all .25s cubic-bezier(.645, .045, .355, 1)
+  transition: all .25s cubic-bezier(.645, .045, .355, 1);
 }
 
 .card_media {
@@ -481,7 +497,6 @@ img {
   background-position: 50%;
   background-size: cover;
   position: relative;
-  -webkit-transition: min-height .25s cubic-bezier(.645, .045, .355, 1);
   transition: min-height .25s cubic-bezier(.645, .045, .355, 1);
   background-color: #e4f1f9
 }
@@ -495,7 +510,6 @@ img {
 
 .list_view .card_media {
   float: left;
-  -webkit-transition: height .25s cubic-bezier(.645, .045, .355, 1);
   transition: height .25s cubic-bezier(.645, .045, .355, 1);
   height: 100%;
   width: 30%;

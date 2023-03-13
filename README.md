@@ -30,23 +30,37 @@ The Jenkins job fetches [this repo](https://github.com/UWHealth/browser-starter-
 
 ## Data
 
-Currently this project uses a static `./src/app.json` file. Any UI element update(s) necessary for should be made there.
+This project uses a static `./src/app.json` file. Any UI element update(s) necessary for should be made there. It is organized in a format that supports multiple sets of states' values.
+
+Currently any Svelte component that needs data from `app.json` imports and uses it directly. They also subscribe to a Svelte store, which maintains the current toggled state and is used as a key to return its corresponding `app.json` data.
 
 ## Toggle states
 
-To accommodate multiple sets of nav items, a means to toggle between Wisconsin and Illinois was introduced. `index.astro` iterates through states (`app.json`) and maps them into the `StateCookieProvider` component. This component has if-logic to render a state's JSON data, should it match the (Svelte) store value, which in turn is kept up-to-date with the `uwh_state-local` cookie value.
+To accommodate multiple sets of nav items, a means to toggle between states (Wisconsin and Illinois) was introduced.
+
+Cookies are leveraged, one local, one supplied by network rules, to aid in supplying an initial value and keeping the user's preference.
+
+When a user toggles a states, the value is set to the store and the `uwh_state-local` cookie value.
 
 ### `uwh_state`
 
-Networking rules applied to the SAN deployments should always supply a `uwh_state` cookie key:value. The `uwh_state` cookie value is set based on user's network traffic location. It is never altered by the app. If for any reason this cookie is not supplied, the app falls back to Wisconsin.
+Networking rules applied to the SAN deployments should always supply a `uwh_state` cookie key:value. The `uwh_state` cookie value is set based on user's network traffic location. It is never altered by the app.
 
 ### `uwh_state-local`
 
-This cookie is set by the app and always takes precedence over `uwh_state`, if present. `StateCookieProvider` ensures this cookie is always set `onMount`.
+This cookie is set by the app and always takes precedence over `uwh_state`, if present. This cookie is always set on page load (via `index.astro`).
+
+### Initial state value fallback order
+
+1) `uwh_state-local`
+2) `uwh_state`
+3) `STATE_COOKIE_VALUE_WISCONSIN` (via `index.astro`)
+
+## Component Transitions
 
 ## History
 
-In February of 2023, project migrated out of T4, off of [github.uwhealth.net](https://github.uwhealth.net/Other/browser-starter-tab) and away from Jenkins, into an Astro + Svelte project with a repo by the same name, [hosted on github.com](https://github.com/UWHealth/browser-starter-tab) and deployed using git actions to build the `src/app.json` source to components and trigger a Netlify deploy.
+In February of 2023, project migrated out of T4, off of [github.uwhealth.net](https://github.uwhealth.net/Other/browser-starter-tab) into an Astro + Svelte project with a repo by the same name, now [hosted on github.com](https://github.com/UWHealth/browser-starter-tab) and deployed using a new [Jenkins job](https://dev-build.uwhealth.tech/job/Browser%20Start%20Tab%20Launch%20Pages/job/Build%20and%20Deploy/).
 
 In October of 2019, the html and images for this project were moved into t4 (CMS). ~~It is now a microsite within the UConnect instance.~~
 

@@ -2,19 +2,18 @@
   import json from '../app.json';
 
 
+  let classes = '';
+  export { classes as class };
+
+
   const { title, header } = json;
   const { ariaLabel, logo } = header;
-  let logoSrc = `${import.meta.env.BASE_URL}${logo}`;
+  const logoSrc = `${import.meta.env.BASE_URL}${logo}`;
 </script>
 
 
-<svelte:head>
-  <link rel="prefetch" href={logoSrc}>
-</svelte:head>
-
-
-<div class="logo_wrapper">
-  <img src={logoSrc} class="pad_h_2 flex-center" alt={title}>
+<div class="logo_wrapper {classes}">
+  <img src={logoSrc} class="logo" alt={title}>
   <h1 class="element-invisible">{ariaLabel}</h1>
 </div>
 
@@ -24,10 +23,23 @@
 
   .logo_wrapper {
     z-index: 1;
+    display: flex;
+    flex-grow: 1;
+    margin: 2rem auto;
 
-    @media only screen and (max-height: (calc(680px/$base-px) * 1em)) {
-      margin-top: 2rem;
-      min-height: 7rem;
+    @media only screen and (min-height: (calc(600px/$base-px) * 1em)) {
+      margin: auto;
+    }
+  }
+
+  .logo {
+    margin: auto 0;
+
+    @media only screen and (min-height: (calc(640px/$base-px) * 1em)) {
+      margin-bottom: 3rem;
+    }
+    @media only screen and (min-height: (calc(900px/$base-px) * 1em)) {
+      margin-bottom: 4rem;
     }
   }
 </style>

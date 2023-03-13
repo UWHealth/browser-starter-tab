@@ -1,13 +1,43 @@
 <script>
+  import NavGroup from '$components/NavGroup.svelte';
   import VerticalNavTile from '$components/VerticalNavTile.svelte';
+  import { stateCookie } from '$utils/stores';
+  import { getXIncrements } from '$utils/getXIncrements';
+  import json from '../app.json';
 
 
-  export let ariaLabel;
-  export let tiles;
+  let classes = '';
+  export { classes as class };
+
+  const { states, fallbackState } = json;
+  const keys = Object.keys(states);
+
+  $: currentState = states[$stateCookie] || fallbackState;
+  $: ariaLabel = currentState.verticalNav.ariaLabel;
+
+  const xIncrements = getXIncrements(keys, [-150, 150]);
 </script>
 
-<nav class="column c-7-12 small_full list_view pad_t_half smalls_pad_t_none" aria-labelledby="U-Connect-by-user-type">
+
+<nav class="column c-7-12 display-inline_grid small_full list_view pad_t_half smalls_pad_t_none {classes}" aria-labelledby="U-Connect-by-user-type">
   <h2 class="element-invisible" id="U-Connect-by-user-type">{ariaLabel}</h2>
 
-  {#each tiles as tile}<VerticalNavTile {...tile} />{/each}
+  {#each keys as key, index}
+
+    {#if $stateCookie}
+      <NavGroup x={$stateCookie ? xIncrements[index] : 0} active={$stateCookie ? key === $stateCookie : true}>
+        {#each states[key].verticalNav.tiles as tile}
+          <VerticalNavTile visible={!!$stateCookie} {...tile} />
+        {/each}
+      </NavGroup>
+    {/if}
+
+    {#if index === 0 && !$stateCookie}
+      <NavGroup x={0} active={true} class="fallback">
+        {#each fallbackState.verticalNav.tiles as tile}<VerticalNavTile visible={!$stateCookie} {...tile} />{/each}
+      </NavGroup>
+    {/if}
+
+  {/each}
+
 </nav>

@@ -1,8 +1,18 @@
 <script>
-  import { tweened, spring } from 'svelte/motion';
-  import { quadInOut, circOut } from 'svelte/easing';
-  export let position = 0;
-  export let total = 2;
+  import { tweened } from 'svelte/motion';
+  import { quadInOut, circOut, quintOut } from 'svelte/easing';
+  import { stateCookie } from '$utils/stores';
+  import json from '../app.json';
+
+
+  let classes = '';
+  export { classes as class };
+
+
+  const { states } = json;
+  const keys = Object.keys(states);
+  const total = keys.length;
+  let position = (total - 1) / 2;
 
   // Necessary for initial calculation. Recreated later in reactive statement.
   let percent = (position) / (total - 1);
@@ -20,6 +30,9 @@
     const val = getProgress(start, end, percent);
     return (fn) => fn(val, ...args);
   }
+
+  /** Creates a simulated version of a spring tween, but better performance */
+  const foregroundDuration = (f, t) => Math.sqrt(Math.abs(f[0] - t[0]) + 100) * 50;
 
   // Configuration
   const bigHexEnd = 110;
@@ -39,12 +52,13 @@
   const slicesTranslateX = createTween({ start: [0, 0], end: slicesEnd}, { duration: 200, easing: quadInOut })(tweened);
   const [ foregroundTop, foregroundMid, foregroundBottom ] = tweenedArray(
     getProgress([[0,0], [0,0], [0,0]], foregroundEnd, percent),
-    { stiffness: .125, damping: 1.75 },
-    spring
+    { easing: quintOut, duration: foregroundDuration, stiffness: .125, damping: 1.75 },
+    tweened
   );
 
   // Reactive statements
   $: percent = (position) / (total - 1);
+  $: position = keys.indexOf($stateCookie);
 
   // Change animations based on `percent` changing
   $: {
@@ -64,7 +78,7 @@
 <svelte:options namespace="svg"/>
 
 
-<svg class="header_image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600">
+<svg class="header_image {classes}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 600" width="2000" height="600" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="bg-gradient"
       x1="0" y1="1000" x2="1950" y2="0"
@@ -121,6 +135,9 @@
 <style lang="scss">
   .header_image {
     position: absolute;
+    // top: 0;
+    width: 100%;
+    height: auto;
     min-height: 60vh;
   }
 

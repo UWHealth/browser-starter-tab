@@ -4,39 +4,24 @@ import HeaderLogo from '$components/HeaderLogo.svelte';
 import BannerNav from '$components/BannerNav.svelte';
 import StateCookieToggleBtn from '$components/StateCookieToggleBtn.svelte';
 import { STATE_COOKIE_VALUES } from '$utils/stateCookie';
-
-
-interface Props {
-  bannerNav: {
-    ariaLabel: string;
-    tiles: Array<{
-      href: string;
-      icon: string;
-      text: string;
-    }>
-  },
-  state: string,
-};
-
-const { bannerNav, state } = Astro.props;
-const { ariaLabel, tiles } = bannerNav;
 ---
 
-<div class="hero flex flex-v vh-4-10">
+
+<div class="hero flex flex-v">
 
   <header class="header flex-center flex flex-v">
 
-    <HeaderImage position={STATE_COOKIE_VALUES.indexOf(state)} total={STATE_COOKIE_VALUES.length} />
+    <HeaderImage client:load />
 
-    <HeaderLogo  />
+    <HeaderLogo client:load />
 
-    <div class="toggle-state-wrapper">
+    <div class="toggle_state_wrapper">
       {STATE_COOKIE_VALUES.map(state => <StateCookieToggleBtn state={state} client:load />)}
     </div>
 
-  </header>
+    <BannerNav client:load />
 
-  <BannerNav ariaLabel={ariaLabel} tiles={tiles} client:load />
+  </header>
 
 </div>
 
@@ -46,41 +31,19 @@ const { ariaLabel, tiles } = bannerNav;
 
   .hero {
     overflow: hidden;
-    justify-content: space-between;
-    max-height: (1.5rem * 26);
     position: relative;
-    width: 100%;
-    padding: 0;
-    flex-shrink: 2;
-    flex-grow: .5;
-
-    @media only screen and (max-height: (calc(600px/$base-px) * 1em)) {
-      flex-basis: 100%;
-    }
+    margin-bottom: -2px;
   }
 
   .header {
-    position: relative;
+    flex-basis: 44vh;
 
-    // btm line
-    &:before {
-      content: '';
-      z-index: 1;
-      position: absolute;
-      display: block;
-      bottom: -1px;
-      width: 100%;
-      max-width: 1080px;
-      height: 2px;
-      opacity: .7;
-      background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%,rgba(255, 255, 255, 1) 25%, rgb(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
+    @media only screen and (min-width: (calc(640px/$base-px) * 1em)) {
+      flex-basis: 45vh;
     }
   }
 
-  .toggle-state-wrapper {
-    z-index: 1;
-    position: absolute;
-    bottom: 0;
+  .toggle_state_wrapper {
     display: flex;
     justify-content: space-between;
     min-width: 300px;

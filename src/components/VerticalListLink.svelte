@@ -1,21 +1,21 @@
 <script>
   export let href = '';
   export let text = '';
-
-  const _paq = typeof window !== 'undefined' && window._paq || [];
-  const handleClick = () => _paq.push(['trackEvent', 'User Activity', 'Tools', `${text.length ? text : ''}`]);
+  export let visible = false;
+  let classes = '';
+  export { classes as class };
 </script>
 
 
-<li class="list_nav_item">
-  <a href={href} class="list_nav_link " on:click={handleClick}>
-    <t4 type="content" name="Tools-2-text" output="normal" modifiers="striptags,htmlentities" />
-
-    <slot name="text">
-      {#if text}{text}{/if}
-    </slot>
-  </a>
-</li>
+{#if visible}
+  <li class="list_nav_item {classes}">
+    <a href={href} class="list_nav_link">
+      <slot name="text">
+        {#if text}{text}{/if}
+      </slot>
+    </a>
+  </li>
+{/if}
 
 
 <style lang="scss">
@@ -30,7 +30,9 @@
     padding: .5rem;
     left: -.5rem;
     position: relative;
-    transition: background 75ms ease-out;
+    transition: all 75ms ease-out;
+    transition-duration: 75ms, 200ms;
+    transition-property: background, letter-spacing;
     white-space: nowrap;
     overflow: hidden;
     max-width: 100%;
