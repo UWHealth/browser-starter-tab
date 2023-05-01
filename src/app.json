@@ -152,6 +152,10 @@
         "ariaLabel": "Tools",
         "links": [
           {
+            "href": "https://helpnow.uwhealth.org/",
+            "text": "Bomgar"
+          },
+          {
             "href": "https://citrixsf.swedishamerican.org/",
             "text": "Citrix"
           },
