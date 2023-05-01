@@ -24,9 +24,7 @@ For `build`, all of the above ENV variables must be set.
 
 ### Jenkins
 
-The Jenkins job fetches [this repo](https://github.com/UWHealth/browser-starter-tab/) and builds out to the SAN.
-
-* [DEV](https://dev-build.uwhealth.tech/job/Browser%20Start%20Tab%20Launch%20Pages/job/Build%20and%20Deploy/)
+The [Jenkins job](https://build.uwhealth.tech/job/Browser%20Start%20Tab%20Launch%20Pages/) fetches [this repo](https://github.com/UWHealth/browser-starter-tab/) and builds out to the SAN.
 
 ## Data
 
