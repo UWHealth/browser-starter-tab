@@ -90,16 +90,16 @@
             "text": "Paging"
           },
           {
+            "href": "https://password.uwhealth.org/",
+            "text": "Password Portal"
+          },
+          {
             "href": "https://uwhealth.service-now.com/sp/",
             "text": "ServiceNow"
           },
           {
             "href": "https://uwhca.sharepoint.com/",
             "text": "SharePoint"
-          },
-          {
-            "href": "https://uwhealth.webex.com/",
-            "text": "WebEx"
           }
         ]
       }
@@ -152,12 +152,12 @@
         "ariaLabel": "Tools",
         "links": [
           {
-            "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=nil221018",
-            "text": "HERO"
-          },
-          {
             "href": "https://citrixsf.swedishamerican.org/",
             "text": "Citrix"
+          },
+          {
+            "href": "https://sso.nextplanesolutions.com:9443/samlsso?spEntityID=nil221018",
+            "text": "HERO"
           },
           {
             "href": "http://www.3eonline.com/EeeOnlinePortal/DesktopDefault.aspx?id=s1mGPv%2fgScQMXewj%2fj58sihHoUQYpnFnUlD3b7PXVYs%3d",
@@ -166,6 +166,10 @@
           {
             "href": "http://www.myadp.com/",
             "text": "My Paycheck"
+          },
+          {
+            "href": "https://password.uwhealth.org/",
+            "text": "Password Portal"
           },
           {
             "href": "https://uwhca.sharepoint.com/sites/UWNorthernIllinoisPoliciesandProcedures",
