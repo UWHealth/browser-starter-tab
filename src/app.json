@@ -82,7 +82,7 @@
             "text": "HERO"
           },
           {
-            "href": "https://myapps.microsoft.com/signin/d8d85358-c554-4fac-a003-11b296b52d4f",
+            "href": "https://launcher.myapps.microsoft.com/api/signin/d8d85358-c554-4fac-a003-11b296b52d4f?tenantId=0fd7902a-3b4f-49b0-b1ed-aaa4d2b4f5f1",
             "text": "Oracle Cloud"
           },
           {
